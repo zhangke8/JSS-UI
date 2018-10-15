@@ -17,5 +17,17 @@ export class Form {
 
 
 export class FormComponent implements OnInit { 
-  ngOnInit() { } 
+  regions = [];
+  plants = [];
+  productTypes = [];
+
+  
+  constructor() {
+    this.regions = ["AM", "CN", "EMEA", "JP + Asia"];
+    this.plants = ["ACUNA", "AP", "ARITA", "HIKONE"];
+    this.productTypes = ["AB", "AB/SB", "AB/INFLATOR", "AB/SB/SW"];
+   }
+
+  ngOnInit() {}
 }
+

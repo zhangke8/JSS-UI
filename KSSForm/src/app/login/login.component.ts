@@ -13,24 +13,19 @@ import { Router } from '@angular/router';
 //     ngOnInit() {}
 // }
 
-@Directive({
-  selector: '[form]'
-})
 
  @Component({ 
   selector: 'app-login', 
   templateUrl: './login.component.html', 
-  //styleUrls: ['./login.component.css'] 
 }) 
  
 export class LoginComponent implements OnInit { 
   email: string; 
   password: string; 
-  // model = new Employee('test@gmail.com', 'test');
   constructor(private router : Router) { }
   ngOnInit() { } 
   login() { 
-    this.router.navigate(['/form']); 
+    // this.router.navigate(['form']); 
     // if (this.email == 'test@gmail.com' && this.password == 'test') { 
       
     // }
