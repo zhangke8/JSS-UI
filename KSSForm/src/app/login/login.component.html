@@ -1,0 +1,17 @@
+<div class="container"> 
+    <div class="col-md-6"> 
+        <h1>Login </h1> 
+        <form #form="ngForm"> 
+            <div class="form-group"> 
+                <label for="email">Email address:</label> 
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"> 
+            </div> 
+            <div class="form-group"> 
+                <label for="pwd">Password:</label> 
+                <input type="password" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"> 
+            </div> 
+            <button class="button" (click)="login()"><a href="" [routerLink]="['/form']" class="nav-link">Login</a></button>
+            <!-- <button onclick="location.href = 'www.youtube.com';" id="myButton" class="float-left submit-button" >Home</button> -->
+        </form> 
+    </div> 
+</div> 
