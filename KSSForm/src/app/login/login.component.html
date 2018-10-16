@@ -3,15 +3,20 @@
         <h1>Login </h1> 
         <form #form="ngForm"> 
             <div class="form-group"> 
-                <label for="email">Email address:</label> 
+                <label for="email">Email address:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"> 
             </div> 
+
+            <br>
+
             <div class="form-group"> 
-                <label for="pwd">Password:</label> 
+                <label for="pwd">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
                 <input type="password" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"> 
             </div> 
+
+            <br>
+
             <button class="button" (click)="login()"><a href="" [routerLink]="['/form']" class="nav-link">Login</a></button>
-            <!-- <button onclick="location.href = 'www.youtube.com';" id="myButton" class="float-left submit-button" >Home</button> -->
         </form> 
     </div> 
 </div> 

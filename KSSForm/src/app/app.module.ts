@@ -1,34 +1,33 @@
-import {NgModule} from '@angular/core';
-import {RouterModule} from "@angular/router";
-import {rootRouterConfig} from "./app.routes";
-import {AppComponent} from "./app.component";
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { Router, Routes, RouterModule } from '@angular/router';
 import {FormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
-import { HomeComponent } from './home/home';
-import { LoginComponent } from './login/login.component'; 
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { FormComponent } from './form/form.component';
-// import { DatepickerModule } from 'angular2-material-datepicker';
 
-
-// import { HomeComponent } from './home/home';
+export const routes : Routes = [
+  { path: "", component: HomeComponent},
+  { path: "login", component: LoginComponent},
+  { path: "form", component: FormComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    // FormComponent,
+    FormComponent,
   ],
-  
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(rootRouterConfig),
-    RouterModule.forRoot([
-      { path: 'form', component: FormComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full'},
-    ]) ],
-  // entryComponents:[FormComponent, LoginComponent],
+    RouterModule.forRoot(routes)
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
