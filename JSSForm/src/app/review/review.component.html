@@ -1,0 +1,129 @@
+<div class="container">
+     
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <table>
+                      <td><label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
+                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                  </table>
+      
+                  <table>
+                      <td><label>Region &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
+                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                  </table>
+      
+                  <table>
+                      <td><label>Plant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
+                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                  </table>
+              </div>
+      
+            <h3><b>Please Review and Submit the data for the Previous Month </b></h3>
+            <div class="form-group">
+                <table class = table>
+                    <th class = "header" colspan=2> Safety Parameters </th>
+                  <tr>
+                      <td><label># of Lost Time Incidents for the month </label> </td>
+                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td> 
+                  </tr>
+                  <tr>
+                      <td> <label> Total # of lost time days for the month </label> </td>
+                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                  </tr>
+                  <tr>
+                      <td> <label>Total Employees on the first day of the month </label> </td>
+                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                  </tr>
+                  <tr>
+                      <td> <label> Total Employees on the last day of the month</label> </td>
+                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                  </tr>
+                </table>
+            </div>
+            
+            <br>
+      
+            <div class="form-group">
+                <table class = "table">
+                    <th class = "header" > Quality  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                    <tr> <button class = "saveButton">Edit</button> </tr>	 
+                  <!-- data table -->
+                  <table class="dataTable">
+                          <td>S.no</td>
+                          <td>Product</td>
+                          <td>Sub Product</td>
+                          <td>Customer/Supplier</td>
+                          <td>Customer/Supplier Name</td>
+                          <td>Total Rejected Qty for the month</td>
+                          <td>Total Shipped Quantity for the month</td>
+                          <td>$Scrap for the month</td>
+                          <td>$Revenue for the month</td>
+                          <td># of Complaints</td>
+                          <td>Created Date</td>
+                          <td>Last Updated Date</td>
+                      </table>
+                  <br/>
+
+                </table>
+                
+            </div>
+      
+              <br/>
+
+              <div class="form-group">
+                    <table class="table">
+                        <th class = "header" colspan=2> Productivity  </th>
+                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> </tr>
+                        <tr> <button class = "saveButton">Edit</button> </tr>	 
+                        <!-- data table -->
+                        <table class="dataTable">
+                                <td>S.No</td>
+                                <td>Product</td>
+                                <td>Sub Product</td>
+                                <td>Customer/Supplier Name</td>
+                                <td>Qty of conforming products shipped for the month</td>
+                                <td>Total Qty of Product Shipped for the month</td>
+                                <td>Created Date</td>
+                                <td>Last Updated Date</td>
+                            </table>
+                    <br/>
+                    <tr> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b></tr>
+                    <tr> <button class = "saveButton">Edit</button> </tr>	 
+
+                        <!-- data table -->
+                          <table class="dataTable">
+                                <td>S.No</td>
+                                <td>Product</td>
+                                <td>Sub Product</td>
+                                <td>Premium Freight In/Out</td>
+                                <td>Customer/Supplier Name</td>
+                                <td>$ Cost of premium freight for the month</td>
+                                <td>$ Revenue for the month</td>
+                                <td>Created Date</td>
+                                <td>Last Updated Date</td>
+                            </table>
+                          <!-- inputs -->
+                    <tr>
+                        <td> <label> COGS </label> </td>
+                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                    </tr>
+                    <tr>
+                        <td> <label> Month end inventory value in local currency </label> </td>
+                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                    </tr>
+                    <tr>
+                        <td> <label> Previous Month end inventory value in local currency </label> </td>
+                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                    </tr>
+
+                      <br/>
+              
+                    </table>
+                    <br/>
+                    
+                    <button (ngSubmit)="onSubmit()"><a href="" >Submit</a></button>
+                </div>
+        </form>
+      </div>
+      
+      
