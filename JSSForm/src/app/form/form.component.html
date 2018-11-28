@@ -114,7 +114,7 @@
                                     <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                                 </tr>
                                 <br/>
-                                <button class = "saveButton">Save</button>
+                                <button class = "saveButton" (click)="toggle1()">Save</button>
                                 
                          </div>
 
@@ -190,7 +190,7 @@
                             <td> <label> Total Qty of Product Shipped for the month </label> </td>
                             <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                         </tr>
-                        <button class = "saveButton">Save</button>
+                        <button class = "saveButton" (click)="toggle2()">Save</button>
                         <br/>
     
                      </div>
@@ -258,7 +258,7 @@
                                 <td> <label> $ Revenue for the month </label> </td>
                                 <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                             </tr>
-                            <button class = "saveButton">Save</button>
+                            <button class = "saveButton" (click)="toggle3()">Save</button>
                         </div>
                    
                     <br/>
