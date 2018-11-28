@@ -5,14 +5,14 @@
         <form #form="ngForm"> 
             <div class="form-group"> 
                 <label for="email">Username:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"> 
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" [value] = "searchValue"> 
             </div> 
 
             <br>
 
             <div class="form-group"> 
                 <label for="pwd">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-                <input type="password" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"> 
+                <input type="password" class="form-control" id="pwd" name="password" [(ngModel)]="password" [value] = "searchValue">  
             </div> 
 
             <br>
@@ -23,7 +23,7 @@
                 <br/>
             </div>
             <div class="submitButtons">
-                <button class="button" (click)="login()"><a href="" [routerLink]="['/form']" class="nav-link">Clear</a></button>
+                <button class="button" (click)="clear()"><a href="" class="nav-link">Clear</a></button>
             </div>
 
         </form> 

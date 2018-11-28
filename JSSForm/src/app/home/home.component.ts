@@ -7,8 +7,13 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  searchValue = '';
   constructor(private router : Router) { }
 
+  clear() {
+    this.searchValue  = '';
+  }
+  
   ngOnInit() {
   }
 
