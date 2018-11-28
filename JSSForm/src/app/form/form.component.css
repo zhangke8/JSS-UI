@@ -33,9 +33,13 @@ td {
   border: 1px solid #dddddd;
 }
 
-.button {
+.addButton {
   background-color: lightgreen;
   float: right;
+}
+.saveButton {
+  background-color: lightgreen;
+  float: left;
 }
 .productivity {
   background-color: green;
