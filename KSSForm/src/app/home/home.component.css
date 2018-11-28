@@ -1,0 +1,19 @@
+.container {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    height: 150px;
+    width: 275px;
+}
+
+.submitButtons {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

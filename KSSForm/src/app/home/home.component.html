@@ -1,0 +1,31 @@
+<div class="container"> 
+    <div class="col-md-6"> 
+        <img src="assets/images/kss-logo.png">
+        <h1>PORTAL NAME </h1> 
+        <form #form="ngForm"> 
+            <div class="form-group"> 
+                <label for="email">Username:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"> 
+            </div> 
+
+            <br>
+
+            <div class="form-group"> 
+                <label for="pwd">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+                <input type="password" class="form-control" id="pwd" name="passowrd" [(ngModel)]="password"> 
+            </div> 
+
+            <br>
+
+            <div class="submitButtons">
+                <button class="button" (click)="login()"><a href="" [routerLink]="['/form']" class="nav-link">Login</a></button>
+                <br/>
+                <br/>
+            </div>
+            <div class="submitButtons">
+                <button class="button" (click)="login()"><a href="" [routerLink]="['/form']" class="nav-link">Clear</a></button>
+            </div>
+
+        </form> 
+    </div> 
+</div> 
