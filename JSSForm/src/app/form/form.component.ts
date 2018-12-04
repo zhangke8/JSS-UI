@@ -13,9 +13,12 @@ export class FormComponent implements OnInit {
   constructor() {
     this.productTypes = ["AB", "AB/SB", "AB/INFLATOR", "AB/SB/SW"];
   }
+
   public show1: boolean = false;
   public show2: boolean = false;
   public show3: boolean = false;
+
+  objDate = Date.now();
 
   toggle1() {
     this.show1 = !this.show1;

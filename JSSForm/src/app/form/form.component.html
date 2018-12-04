@@ -1,10 +1,21 @@
+
+<body>
+
+<div class="bck">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+
+  <img src="http://joysonsafety.com//wp-content/uploads/2018/04/Joyson.png" style="width: 200px;height: 100px;">
+
+</nav>
+
 <div class="container">
      
-        <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <form #form="ngForm" (ngSubmit)="onSubmit()" class="write">
               <div class="form-group">
-                  <table>
+                  <table >
                       <td><label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
-                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                      <td>{{objDate | date :'fullDate'}}</td>
                   </table>
       
                   <table>
@@ -20,7 +31,7 @@
       
             <h3><b>Please enter the data for the Previous Month: </b></h3>
             <div class="form-group">
-                <table class = table>
+                <table class="table">
                     <th class = "header" colspan=2> Safety Parameters </th>
                   <tr>
                       <td><label># of Lost Time Incidents for the month </label> </td>
@@ -46,8 +57,9 @@
             <div class="form-group">
                   <table class = "table">
                       <th class = "header" > Quality  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-                      
-                      <tr> <button class="addButton" (click)="toggle1()">+ Add a product</button> </tr>	  
+
+
+                      <tr> <button  class="btn btn-success"  (click)="toggle1()">+ Add a product</button> </tr>
 
                         <div *ngIf="show1 === true">
                             <!-- drop downs -->
@@ -114,7 +126,7 @@
                                     <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                                 </tr>
                                 <br/>
-                                <button class = "saveButton" (click)="toggle1()">Save</button>
+                                <button  class="btn btn-success" style="float: left;" (click)="toggle1()">Save</button>
                                 
                          </div>
 
@@ -145,7 +157,7 @@
               <div class="form-group">
                     <table class="table">
                         <th class = "header" colspan=2> Productivity  </th>
-                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="addButton" (click)="toggle2()">+ Add a Record</button> </b> </tr>
+                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle2()">+ Add a Record</button> </b> </tr>
               
                      <div *ngIf="show2 === true"> 
                        <!-- drop downs -->
@@ -189,7 +201,7 @@
                             <td> <label> Total Qty of Product Shipped for the month </label> </td>
                             <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                         </tr>
-                        <button class = "saveButton" (click)="toggle2()">Save</button>
+                        <button  class="btn btn-success" style="float: left;" (click)="toggle2()">Save</button>
                         <br/>
     
                      </div>
@@ -206,7 +218,7 @@
                                 <td>Last Updated Date</td>
                             </table>
                     <br/>
-                    <tr> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="addButton" (click)="toggle3()">+ Add a Record</button> </b></tr>
+                    <tr> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle3()">+ Add a Record</button> </b></tr>
                         <div *ngIf="show3 === true">
                             <tr>
                                 <td> <label>Select a Product </label> </td>
@@ -256,7 +268,7 @@
                                 <td> <label> $ Revenue for the month </label> </td>
                                 <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                             </tr>
-                            <button class = "saveButton" (click)="toggle3()">Save</button>
+                            <button class="btn btn-success" style="float: left;" (click)="toggle3()">Save</button>
                         </div>
                    
                     <br/>
@@ -290,9 +302,16 @@
               
                     </table>
                     <br/>
-                    <button (ngSubmit)="onSubmit()"><a href="" [routerLink]="['/review']" class="nav-link">Save & Review</a></button>
+                    <button class="btn btn-primary"  (ngSubmit)="onSubmit()"><a href="" [routerLink]="['/review']" style="color: white" class="nav-link">Save & Review</a></button>
                 </div>
         </form>
       </div>
-      
+</div>
+<footer class="footer">
+  <p>©2018 Joyson Safety Systems. All Rights Reserved.</p>
+</footer>
+</body>
+
+
+
       

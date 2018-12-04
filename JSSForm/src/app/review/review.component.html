@@ -1,10 +1,19 @@
+<body>
+
+<div class="bck">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+
+    <img src="http://joysonsafety.com//wp-content/uploads/2018/04/Joyson.png" style="width: 200px;height: 100px;">
+
+  </nav>
+
 <div class="container">
      
-        <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <form #form="ngForm" (ngSubmit)="onSubmit()" class="write">
               <div class="form-group">
                   <table>
                       <td><label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
-                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                      <td>{{objDate | date :'fullDate'}}</td>
                   </table>
       
                   <table>
@@ -46,7 +55,7 @@
             <div class="form-group">
                 <table class = "table">
                     <th class = "header" > Quality  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-                    <tr> <button class = "saveButton"> <a href="" [routerLink]="['/form']" class="nav-link">Edit</a></button> </tr>		 
+                    <tr> <button class="btn btn-success"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </tr>
                   <!-- data table -->
                   <table class="dataTable">
                           <td>S.no</td>
@@ -74,7 +83,7 @@
                     <table class="table">
                         <th class = "header" colspan=2> Productivity  </th>
                         <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> </tr>
-                        <tr> <button class = "saveButton"> <a href="" [routerLink]="['/form']" class="nav-link">Edit</a></button> </tr>		 
+                        <tr> <button class="btn btn-success"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </tr>
                         <!-- data table -->
                         <table class="dataTable">
                                 <td>S.No</td>
@@ -88,7 +97,7 @@
                             </table>
                     <br/>
                     <tr> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b></tr>
-                    <tr> <button class = "saveButton"> <a href="" [routerLink]="['/form']" class="nav-link">Edit</a></button> </tr>	 
+                    <tr> <button class="btn btn-success"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </tr>
                         <!-- data table -->
                           <table class="dataTable">
                                 <td>S.No</td>
@@ -119,10 +128,21 @@
               
                     </table>
                     <br/>
-                    
-                    <button (ngSubmit)="onSubmit()"><a href="" >Submit</a></button>
+
+
+
+                    <button (click)="clickbutton()" class="btn btn-primary" style="color: white;">Submit</button>
+
+
+
                 </div>
         </form>
+
+
       </div>
-      
-      
+</div>
+</body>
+
+<footer class="footer">
+  <p>©2018 Joyson Safety Systems. All Rights Reserved.</p>
+</footer>

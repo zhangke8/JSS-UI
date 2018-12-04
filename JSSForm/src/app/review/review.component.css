@@ -15,7 +15,13 @@ label {
     padding: 10px;
 }
 .header {
-  background-color: lightblue;
+  background-color: dodgerblue;
+}
+
+img {
+
+  filter:brightness(200%);
+
 }
 
 td {
@@ -31,4 +37,37 @@ td {
 .saveButton {
   background-color: lightgreen;
   float: right;
+}
+
+body {
+
+  background-image: url("https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+.container {
+
+  /*background-image: url("https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
+  background-size: cover  ;
+
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /*background-color: black;*/
+  color: white;
+  text-align: center;
+}
+
+.write {
+
+  color: white;
+
 }

@@ -9,12 +9,20 @@ import { CommonModule }  from '@angular/common';
 })
 export class ReviewComponent implements OnInit {
 
+  objDate = Date.now();
+
+  public show: boolean = false;
+
   constructor() {
   }
   ngOnInit() {
   }
+
   onSubmit() {
-    
+
+
   }
+
+
 
 }
