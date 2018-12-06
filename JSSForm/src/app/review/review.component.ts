@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule }  from '@angular/common';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,9 +12,11 @@ export class ReviewComponent implements OnInit {
 
   objDate = Date.now();
 
+  closeResult: string;
+
   public show: boolean = false;
 
-  constructor() {
+  constructor( private modalService: NgbModal ) {
   }
   ngOnInit() {
   }
@@ -22,6 +25,11 @@ export class ReviewComponent implements OnInit {
 
 
   }
+
+
+
+
+
 
 
 

@@ -7,53 +7,81 @@
 
   <img src="http://joysonsafety.com//wp-content/uploads/2018/04/Joyson.png" style="width: 200px;height: 100px;">
 
+
+
 </nav>
+<div style="float: right; padding-right: 40px; border-style: solid; border-color: DodgerBlue; background: DodgerBlue; height: 45px;">
+<label style="color: white;">{{objDate | date :'fullDate'}}</label>
+</div>
+
+<br>
+
+<div style="padding-left: 200px;">
+<table>
+<td style="color:white">&nbsp; Select the month &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<select class="form-control" (change)="selectChangeHandler($event)" [(ngModel)]="selectedMonth" name="mon">
+<option  [value]="month" *ngFor="let month of months" >{{month}}</option>
+</select>
+</table>
+</div>
+
+<br>
 
 <div class="container">
-     
-        <form #form="ngForm" (ngSubmit)="onSubmit()" class="write">
+
+        <form #form="ngForm" (ngSubmit)="onSubmit()" class="write" *ngIf="selectedMonth">
               <div class="form-group">
-                  <table >
+                <!--  <table >
                       <td><label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
                       <td>{{objDate | date :'fullDate'}}</td>
-                  </table>
-      
+                  </table> -->
+
+
+
+
+
                   <table>
                       <td><label>Region &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
-                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                      <td><input type="text" class="form-control"  name="lostTimeIncidents" ngModel> </td>
                   </table>
-      
+
                   <table>
                       <td><label>Plant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
                       <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
                   </table>
               </div>
-      
-            <h3><b>Please enter the data for the Previous Month: </b></h3>
+
+            <h3><b>Please enter the data for {{selectedDay}}: </b></h3>
             <div class="form-group">
                 <table class="table">
                     <th class = "header" colspan=2> Safety Parameters </th>
                   <tr>
-                      <td><label># of Lost Time Incidents for the month </label> </td>
-                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td> 
+                      <td><label># of Lost Time Incidents for the {{selectedDay}} </label> </td>
+                      <td><input type="number" class="form-control" min="0"> </td>
                   </tr>
                   <tr>
-                      <td> <label> Total # of lost time days for the month </label> </td>
-                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                      <td> <label> Total # of lost time days for {{selectedDay}} </label> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                   </tr>
                   <tr>
-                      <td> <label>Total Employees on the first day of the month </label> </td>
-                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                      <td> <label>Total Employees on the first day of {{selectedDay}} </label> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                   </tr>
                   <tr>
-                      <td> <label> Total Employees on the last day of the month</label> </td>
-                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                      <td> <label> Total Employees on the last day of {{selectedDay}}</label> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                   </tr>
+
+                  <tr>
+                      <td> <label> # of employees who left during {{selectedDay}}</label> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
+                  </tr>
+
                 </table>
             </div>
-            
+
             <br>
-      
+
             <div class="form-group">
                   <table class = "table">
                       <th class = "header" > Quality  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
@@ -64,6 +92,27 @@
                         <div *ngIf="show1 === true">
                             <!-- drop downs -->
                             <tr>
+                                    <td> <label>Customer/Supplier</label> </td>
+                                    <td>
+                                        <select class="form-control" [(ngModel)]="selectedLevel" (change)="selected()" name="names">
+                                            <option value="Customer">Customer</option>
+                                            <option value="Supplier">Supplier</option>
+
+                                        </select>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                        <td> <label>{{ selectedLevel }} Name</label> </td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option *ngFor="let person of persons">
+                                                    {{ person }}
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                            <tr>
                                     <td> <label>Select a Product </label> </td>
                                     <td>
                                         <select class="form-control">
@@ -73,7 +122,7 @@
                                         </select>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr *ngIf="selectedLevel == 'Customer'">
                                     <td> <label> Sub Product </label> </td>
                                     <td>
                                         <select class="form-control">
@@ -83,51 +132,35 @@
                                         </select>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td> <label>Customer/Supplier </label> </td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option *ngFor="let type of productTypes">
-                                                {{ type }}
-                                            </option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label>Customer/Suppler Name </label> </td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option *ngFor="let type of productTypes">
-                                                {{ type }}
-                                            </option>
-                                        </select>
-                                    </td>
-                                </tr>
-                
+
                                 <!-- inputs -->
                                 <tr>
                                     <td> <label> Total Rejected Qty for the month </label> </td>
-                                    <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                    <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
                                 <tr>
                                     <td> <label> Shipped Quantity for the month </label> </td>
-                                    <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                    <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
-                                <tr style="background-color: orange;">
+                                <tr >
                                     <td> <label> $ Scrap for the month </label> </td>
-                                    <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                    <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
-                                <tr style="background-color: orange;">
+                                <tr *ngIf="selectedLevel == 'Customer'">
                                     <td> <label> $ Revenue for the month </label> </td>
-                                    <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                    <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
-                                <tr style="background-color: orange;">
+                                <tr *ngIf="selectedLevel == 'Supplier'">
+                                    <td> <label>Total Amount Paid</label> </td>
+                                    <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
+                                </tr>
+                                <tr >
                                     <td> <label> # of Compliants </label> </td>
-                                    <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                    <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
                                 <br/>
                                 <button  class="btn btn-success" style="float: left;" (click)="toggle1()">Save</button>
-                                
+
                          </div>
 
                     <br/>
@@ -149,17 +182,17 @@
                     <br/>
 
                   </table>
-                  
+
               </div>
-      
+
               <br/>
 
               <div class="form-group">
                     <table class="table">
                         <th class = "header" colspan=2> Productivity  </th>
                         <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle2()">+ Add a Record</button> </b> </tr>
-              
-                     <div *ngIf="show2 === true"> 
+
+                     <div *ngIf="show2 === true">
                        <!-- drop downs -->
                        <tr>
                             <td> <label>Select a Product </label> </td>
@@ -191,19 +224,19 @@
                                 </select>
                             </td>
                         </tr>
-                  
+
                           <!-- inputs -->
                         <tr>
                             <td> <label> Qty of conforming products shipped for the month </label> </td>
-                            <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                            <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="selectedLevel == 'Supplier'">
                             <td> <label> Total Qty of Product Shipped for the month </label> </td>
-                            <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                            <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                         </tr>
                         <button  class="btn btn-success" style="float: left;" (click)="toggle2()">Save</button>
                         <br/>
-    
+
                      </div>
                      <br/>
                         <!-- data table -->
@@ -220,6 +253,8 @@
                     <br/>
                     <tr> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle3()">+ Add a Record</button> </b></tr>
                         <div *ngIf="show3 === true">
+
+                          <tr><b>Premium Freight In</b></tr>
                             <tr>
                                 <td> <label>Select a Product </label> </td>
                                 <td>
@@ -231,7 +266,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td> <label> Sub Product </label> </td>
+                                <td> <label>Supplier Name</label> </td>
                                 <td>
                                     <select class="form-control">
                                         <option *ngFor="let type of productTypes">
@@ -241,7 +276,20 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td> <label> Premium Freight In/Out </label> </td>
+                                <td> <label>Cost of Premium Freight In</label> </td>
+                                <td>
+                                    <select class="form-control">
+                                        <option *ngFor="let type of productTypes">
+                                            {{ type }}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr><b>Premium Freight Out</b></tr>
+
+                            <tr>
+                                <td> <label>Select a Product</label> </td>
                                 <td>
                                     <select class="form-control">
                                         <option *ngFor="let type of productTypes">
@@ -251,26 +299,16 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td> <label>Customer/Supplier Name </label> </td>
-                                <td>
-                                    <select class="form-control">
-                                        <option *ngFor="let type of productTypes">
-                                            {{ type }}
-                                        </option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> <label> $ Cost of premium freight for the month </label> </td>
+                                <td> <label>Customer Name</label> </td>
                                 <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                             </tr>
                             <tr>
-                                <td> <label> $ Revenue for the month </label> </td>
-                                <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                <td> <label>$Cost of Premium Freight Out</label> </td>
+                                <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                             </tr>
                             <button class="btn btn-success" style="float: left;" (click)="toggle3()">Save</button>
                         </div>
-                   
+
                     <br/>
                           <!-- data table -->
                           <table class="dataTable">
@@ -287,19 +325,19 @@
                           <!-- inputs -->
                     <tr>
                         <td> <label> COGS </label> </td>
-                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                     </tr>
                     <tr>
                         <td> <label> Month end inventory value in local currency </label> </td>
-                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                     </tr>
                     <tr>
                         <td> <label> Previous Month end inventory value in local currency </label> </td>
-                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                     </tr>
 
                       <br/>
-              
+
                     </table>
                     <br/>
                     <button class="btn btn-primary"  (ngSubmit)="onSubmit()"><a href="" [routerLink]="['/review']" style="color: white" class="nav-link">Save & Review</a></button>
@@ -311,7 +349,3 @@
   <p>©2018 Joyson Safety Systems. All Rights Reserved.</p>
 </footer>
 </body>
-
-
-
-      

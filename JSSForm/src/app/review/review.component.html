@@ -8,32 +8,32 @@
   </nav>
 
 <div class="container">
-     
+
         <form #form="ngForm" (ngSubmit)="onSubmit()" class="write">
               <div class="form-group">
                   <table>
                       <td><label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
                       <td>{{objDate | date :'fullDate'}}</td>
                   </table>
-      
+
                   <table>
                       <td><label>Region &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
                       <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
                   </table>
-      
+
                   <table>
                       <td><label>Plant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
                       <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
                   </table>
               </div>
-      
+
             <h3><b>Please Review and Submit the data for the Previous Month </b></h3>
             <div class="form-group">
                 <table class = table>
                     <th class = "header" colspan=2> Safety Parameters </th>
                   <tr>
                       <td><label># of Lost Time Incidents for the month </label> </td>
-                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td> 
+                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
                   </tr>
                   <tr>
                       <td> <label> Total # of lost time days for the month </label> </td>
@@ -49,9 +49,9 @@
                   </tr>
                 </table>
             </div>
-            
+
             <br>
-      
+
             <div class="form-group">
                 <table class = "table">
                     <th class = "header" > Quality  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
@@ -74,9 +74,9 @@
                   <br/>
 
                 </table>
-                
+
             </div>
-      
+
               <br/>
 
               <div class="form-group">
@@ -125,15 +125,15 @@
                     </tr>
 
                       <br/>
-              
+
                     </table>
                     <br/>
 
 
 
-                    <button (click)="clickbutton()" class="btn btn-primary" style="color: white;">Submit</button>
+                  
 
-
+                    <button class="btn btn-primary" style="color: white;" (click)="open(content)">Submit</button>
 
                 </div>
         </form>
@@ -141,6 +141,34 @@
 
       </div>
 </div>
+
+<ng-template #content let-modal>
+  <div>
+
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+
+        <div >
+          <p>Thanks for Submitting!</p>
+
+        </div>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
+
+
+<hr>
+
+<pre>{{closeResult}}</pre>
+
 </body>
 
 <footer class="footer">
