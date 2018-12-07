@@ -15,6 +15,15 @@ export class LoginComponent implements OnInit {
     this.searchValue  = '';
   }
 
+  public Username: string;
+  public Password: string;
+  login() {
+    alert(this.Username); 
+    alert(this.Password);
+    setTimeout(() => {
+      this.router.navigate(['/history']);
+    }, 2000);
+  }
 
   
   ngOnInit() {
