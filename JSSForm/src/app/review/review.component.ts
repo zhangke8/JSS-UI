@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule }  from '@angular/common';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router  } from '@angular/router';
 
 @Component({
   selector: 'app-review',
@@ -16,21 +15,15 @@ export class ReviewComponent implements OnInit {
 
   public show: boolean = false;
 
-  constructor( private modalService: NgbModal ) {
+  constructor( private modalService: NgbModal, private router: Router ) {
   }
   ngOnInit() {
   }
 
-  onSubmit() {
-
-
+  onSubmit(){
+    alert("Thanks for submitting!");
+    setTimeout(() => {
+      this.router.navigate(['/history']);
+    }, 2000);  
   }
-
-
-
-
-
-
-
-
 }
