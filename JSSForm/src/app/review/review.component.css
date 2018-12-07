@@ -34,6 +34,10 @@ td {
   border: 1px solid #dddddd;
 }
 
+.editButton {
+  float:right;
+}
+
 .saveButton {
   background-color: lightgreen;
   float: right;
