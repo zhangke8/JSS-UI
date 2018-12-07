@@ -59,9 +59,9 @@
 
               <br>
 
-            <h3><b>Please enter the data for {{selectedDay}}: </b></h3>
+            <h5><b>Please enter the data for {{selectedDay}}: </b></h5>
             <br>
-            <div class="card">
+            <div class="card" style="width:1200px">
                 <table class="table">
                     <th class = "header" colspan=2> Safety Parameters </th>
                   <tr>
@@ -92,14 +92,17 @@
             <br>
             <br>
 
-            <div class="card" style="width:1200px">
+            <div class="card" style="width:1200px; ">
                   <table class = "table">
                       <th class = "header" > Quality  </th>
 
 
+
                       <tr> <button  class="btn btn-success"  (click)="toggle1()">+ Add a product</button> </tr>
 
-                        <div *ngIf="show1 === true">
+
+
+                        <div class="card" style="width:610px;background:lightgrey; align-items:center" *ngIf="show1 === true">
                             <!-- drop downs -->
                             <tr>
                                     <td> <label style="color:black">Customer/Supplier</label> </td>
@@ -169,7 +172,7 @@
                                     <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
                                 <br/>
-                                <button  class="btn btn-success" style="float: left;" (click)="toggle1()">Save</button>
+                                <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle1()">Save</button>
 
                          </div>
 
@@ -198,12 +201,12 @@
               <br/>
               <br/>
 
-              <div class="card">
+              <div class="card" style="width:1200px">
                     <table class="table">
                         <th class = "header" colspan=2> Productivity  </th>
                         <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle2()">+ Add a Record</button> </b> </tr>
 
-                     <div *ngIf="show2 === true">
+                     <div class="card" style="width:610px;background:lightgrey; align-items:center" *ngIf="show2 === true">
                        <!-- drop downs -->
                        <tr>
                             <td> <label style="color:black">Select a Product </label> </td>
@@ -245,7 +248,7 @@
                             <td> <label style="color:black"> Total Qty of Product Shipped for the month </label> </td>
                             <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                         </tr>
-                        <button  class="btn btn-success" style="float: left;" (click)="toggle2()">Save</button>
+                        <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle2()">Save</button>
                         <br/>
 
                      </div>
@@ -262,10 +265,11 @@
                                 <td style="color:black">Last Updated Date</td>
                             </table>
                     <br/>
-                    <tr> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle3()">+ Add a Record</button> </b></tr>
-                        <div *ngIf="show3 === true">
+                    <tr style="color:black;"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle3()">+ Add a Record</button> </b></tr>
+                      <div class="card" style="width:585px;background:lightgrey;  align-items:center" *ngIf="show3 === true">
 
-                          <tr><b>Premium Freight In</b></tr>
+                          <tr style="color:black;"><b>Premium Freight In</b></tr>
+
                             <tr>
                                 <td> <label style="color:black">Select a Product </label> </td>
                                 <td>
@@ -297,7 +301,7 @@
                                 </td>
                             </tr>
 
-                            <tr><b>Premium Freight Out</b></tr>
+                            <tr style="color:black;"><b>Premium Freight Out</b></tr>
 
                             <tr>
                                 <td> <label style="color:black">Select a Product</label> </td>
@@ -317,7 +321,7 @@
                                 <td> <label style="color:black">$Cost of Premium Freight Out</label> </td>
                                 <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                             </tr>
-                            <button class="btn btn-success" style="float: left;" (click)="toggle3()">Save</button>
+                            <button class="btn btn-success" style="float: right; width:75px;" (click)="toggle3()">Save</button>
                         </div>
 
                     <br/>
