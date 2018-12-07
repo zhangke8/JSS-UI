@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Arial, serif;
+}
+
+label {
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+  }
+
+  input {
+    display: inline-block;
+    text-align: left;
+    width:300px;
+  }
+  a:link {
+    text-decoration: none;
+}
+  select {
+    display: inline-block;
+    text-align: right;
+    width:300px;
+  }
+
+  Body {
+    /* background-image: url("https://wallpapertag.com/wallpaper/full/e/9/8/755704-amazing-pics-for-computer-background-1920x1200.jpg");
+    background-size: cover; */
+    background-color: lightgray;
+    height: auto;
+  }
+
+.tableHeader {
+  background-color: darkblue;
+  color: white;
+}
+td {
+  width: auto;
+}
+.table {
+  border: 3px solid black;
+}
+.dataTable td {
+  border: 2px solid blue;
+}
+
+Button {
+  background-color: darkblue;
+  color:white;
+  float: right;
+}
+
+.submit {
+  background-color: darkblue;
+  color:white;
+  float: left;
+}
+
+.productivity {
+  background-color: green;
+  float: right;
+}
+.footer {
+  position: absolute;
+}

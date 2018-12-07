@@ -42,10 +42,6 @@
 
         <form #form="ngForm" (ngSubmit)="onSubmit()" class="write" *ngIf="selectedMonth">
               <div class="form-group">
-                <!--  <table >
-                      <td><label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> </td>
-                      <td>{{objDate | date :'fullDate'}}</td>
-                  </table> -->
                   <table>
                       <td><label style="color:white">Region</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control"  name="lostTimeIncidents" ngModel></td>
 
@@ -59,7 +55,10 @@
 
               <br>
 
+
+
             <h5><b>Please enter the data for {{selectedDay}}: </b></h5>
+
             <br>
             <div class="card" style="width:1200px">
                 <table class="table">
@@ -98,7 +97,9 @@
 
 
 
+
                       <tr> <button  class="btn btn-success"  (click)="toggle1()">+ Add a product</button> </tr>
+
 
 
 
@@ -107,7 +108,7 @@
                             <tr>
                                     <td> <label style="color:black">Customer/Supplier</label> </td>
                                     <td>
-                                        <select class="form-control" [(ngModel)]="selectedLevel" (change)="selected()" name="names">
+                                        <select class="form-control" [(ngModel)]="selectedLevel" name="names">
                                             <option value="Customer">Customer</option>
                                             <option value="Supplier">Supplier</option>
 
@@ -125,7 +126,7 @@
                                             </select>
                                         </td>
                                     </tr>
-                            <tr>
+                            <tr *ngIf="selectedLevel == 'Customer'">
                                     <td> <label style="color:black">Select a Product </label> </td>
                                     <td>
                                         <select class="form-control">
@@ -172,7 +173,9 @@
                                     <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                                 </tr>
                                 <br/>
+
                                 <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle1()">Save</button>
+
 
                          </div>
 
@@ -204,7 +207,7 @@
               <div class="card" style="width:1200px">
                     <table class="table">
                         <th class = "header" colspan=2> Productivity  </th>
-                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle2()">+ Add a Record</button> </b> </tr>
+                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show2')">+ Add a Record</button> </b> </tr>
 
                      <div class="card" style="width:610px;background:lightgrey; align-items:center" *ngIf="show2 === true">
                        <!-- drop downs -->
@@ -248,7 +251,9 @@
                             <td> <label style="color:black"> Total Qty of Product Shipped for the month </label> </td>
                             <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                         </tr>
+
                         <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle2()">Save</button>
+
                         <br/>
 
                      </div>
@@ -265,6 +270,7 @@
                                 <td style="color:black">Last Updated Date</td>
                             </table>
                     <br/>
+
                     <tr style="color:black;"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle3()">+ Add a Record</button> </b></tr>
                       <div class="card" style="width:585px;background:lightgrey;  align-items:center" *ngIf="show3 === true">
 
@@ -321,7 +327,9 @@
                                 <td> <label style="color:black">$Cost of Premium Freight Out</label> </td>
                                 <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                             </tr>
+
                             <button class="btn btn-success" style="float: right; width:75px;" (click)="toggle3()">Save</button>
+
                         </div>
 
                     <br/>
