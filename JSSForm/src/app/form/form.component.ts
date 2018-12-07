@@ -36,12 +36,6 @@ export class FormComponent implements OnInit {
 
   dates = new Dates('');
 
-  /*showFields() {
-
-    this.fields = !this.fields;
-
-  }*/
-
   toggle1() {
     this.show1 = !this.show1;
   }
@@ -67,11 +61,6 @@ export class FormComponent implements OnInit {
     //update the ui
     this.selectedDay = event.target.value;
     //this.fields = !this.fields;
-    console.log(this.selectedMonth);
-  }
-
-  selected(){
-    console.log(this.selectedLevel);
   }
 
 }
