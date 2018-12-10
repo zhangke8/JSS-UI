@@ -35,7 +35,8 @@ function queryDatabase(){
 
     // Read all rows from table
     var request = new Request(
-        'SELECT * FROM "User"',
+        "SELECT User_NAME, Password FROM \"User\"",
+        // "SELECT Region FROM Plant WHERE Region = 'Americas'",
         function(err, rowCount, rows)
         {
             console.log(rowCount + ' row(s) returned');

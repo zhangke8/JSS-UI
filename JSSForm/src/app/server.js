@@ -5,7 +5,8 @@ var http = require('http');
 var app = express();
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
-
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.json());
 // Create connection to database
 var config =
 {
@@ -21,18 +22,22 @@ var config =
 var connection = new Connection(config);
 
 // Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err)
-    {
-        if (err)
-        {
-            console.log(err)
-        }
-        else
-        {
-            console.log("success");
-        }
+connection.on('connect', function (err) {
+    if (err) {
+        console.log(err)
     }
+    else {
+        console.log("success");
+    }
+}
 );
+
+
+var port = process.env.PORT || '3000';
+
+
+//Listen on provided PORT
+app.listen(port, () => console.log("Server is running"));
 
 
 // var api = require('./routes/api');
@@ -46,47 +51,59 @@ connection.on('connect', function(err)
 // app.get('/index',function(req,res){
 //     res.sendFile(__dirname+'/dist/index.html')
 // });
-// User_NAME, Password 
-app.get('/', function(req, res){
-//   logger.info("Server Root");
+
+// UI makes service request to get data from DB
+
+// getting data from DB
+app.get('/', function (req, res) {
+    //   logger.info("Server Root");
     var request = new Request(
-        'SELECT User_NAME, Password FROM "User"',
-        function(err, rowCount, rows)
-        {
+        "SELECT User_NAME FROM \"User\"WHERE USER_NAME = 'Ishmeet' AND Password = 'ish1234'",
+        function (err, rowCount, rows) {
             if (rowCount == 0) {
                 console.log("empty");
             }
             console.log(rowCount + ' row(s) returned');
         }
     );
-    
 
-    request.on('row', function(columns) {
-        columns.forEach(function(column) {
+
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
             console.log("%s\t%s", column.metadata.colName, column.value);
         });
     });
     connection.execSql(request);
-  res.send("Server Root");
+    res.send("Server Root");
 });
 
-// SELECT User_NAME, Password FROM "User" WHERE USER_NAME == username AND Password == password
-// app.post('/', function(req, res) {
-//     var request = new Request(
-//         'SELECT * FROM User',
-//         function(data, err) {
-//             console.log(data);
-//         }
-//     );
-//     res.status(200).send(req.body.userName + req.body.Password);
-// })
+
+app.post('/', function (req, res) {
+    console.log("body " + req.body.username + " AND Password = " + req.body.password);
+    var request = new Request(
+        "SELECT USER_NAME FROM \"User\" WHERE USER_NAME = '" + req.body.username + "' AND Password = '" + req.body.password + "'",//USER_NAME == req.body.username AND Password == req.body.password',
+        function (err, rowCount, rows) {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                console.log("post " + rowCount + ' row(s) returned');
+                console.log(rowCount);
+                res.status(200).send("hi")
+            }
+
+        }
+    );
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+        });
+    });
+    connection.execSql(request);
+
+})
 
 // app.use('/',api);
 /*
     Get port from environment and store in express
-*/ 
-var port = process.env.PORT || '3000';
-
-
-//Listen on provided PORT
-app.listen(port, () => console.log("Server is running"));
+*/
