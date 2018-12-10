@@ -19,11 +19,10 @@ export class LoginComponent implements OnInit {
   public Password: string;
   login() {
     alert(this.Username); 
-    console.log(this.Password);
     alert(this.Password);
-    // setTimeout(() => {
-    //   this.router.navigate(['/history']);
-    // }, 2000);
+    setTimeout(() => {
+      this.router.navigate(['/history']);
+    }, 2000);
   }
 
   
