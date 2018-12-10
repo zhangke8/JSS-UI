@@ -16,22 +16,21 @@
           <p style="color: white;">PORTAL NAME </p>
           <form #form="ngForm">
             <div class="form-group">
-              <label for="email" style="color: white;">Username:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" [value] = "searchValue" style="width: 20rem;" >
-
+              <label for="Username" style="color: white;">Username:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="Username" class="form-control" id="Username" name="Username" [(ngModel)]="Username" [value] = "Username" style="width: 20rem;" >
             </div>
 
             <br>
 
             <div class="form-group">
-              <label for="pwd" style="color: white;">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <input type="password" class="form-control" id="pwd" name="password" [(ngModel)]="password" [value] = "searchValue"  style="width: 20rem;">
+              <label for="Username" style="color: white;">Password:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="Password" class="form-control" id="Password" name="Password" [(ngModel)]="Password" [value] = "Password" style="width: 20rem;" >
             </div>
 
             <br>
 
             <div class="submitButtons" style="width: 20rem">
-              <button type="button" class="btn btn-primary" style="height:3rem" (click)="login()"><a href="" [routerLink]="['/history']" class="nav-link">Login</a></button>
+              <button type="button" class="btn btn-primary" style="height:3rem" (click)="login()">Login</button>
               <br/>
               <br/>
               <br/>
