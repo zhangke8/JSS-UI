@@ -98,7 +98,7 @@
 
 
 
-                      <tr> <button  class="btn btn-success"  (click)="toggle1()">+ Add a product</button> </tr>
+                      <tr> <button  class="btn btn-success"  (click)="toggle('show1')">+ Add a product</button> </tr>
 
 
 
@@ -174,7 +174,7 @@
                                 </tr>
                                 <br/>
 
-                                <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle1()">Save</button>
+                                <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle('show1')">Save</button>
 
 
                          </div>
@@ -252,7 +252,7 @@
                             <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                         </tr>
 
-                        <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle2()">Save</button>
+                        <button  class="btn btn-success" style="float: right; width:75px;" (click)="toggle('show2')">Save</button>
 
                         <br/>
 
@@ -271,7 +271,7 @@
                             </table>
                     <br/>
 
-                    <tr style="color:black;"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle3()">+ Add a Record</button> </b></tr>
+                    <tr style="color:black;"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show3')">+ Add a Record</button> </b></tr>
                       <div class="card" style="width:585px;background:lightgrey;  align-items:center" *ngIf="show3 === true">
 
                           <tr style="color:black;"><b>Premium Freight In</b></tr>
@@ -328,7 +328,7 @@
                                 <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                             </tr>
 
-                            <button class="btn btn-success" style="float: right; width:75px;" (click)="toggle3()">Save</button>
+                            <button class="btn btn-success" style="float: right; width:75px;" (click)="toggle('show3')">Save</button>
 
                         </div>
 

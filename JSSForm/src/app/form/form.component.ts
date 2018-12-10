@@ -39,19 +39,6 @@ export class FormComponent implements OnInit {
     this[element] = !this[element];
   }
 
-  // hiding dropdowns or input boxes
-  public selectedVal: string;
-  public hideable: boolean = false;
-  onRowClick() {
-    if (this.selectedVal === "Customer") {
-      this.hideable = true;
-    }
-    else {
-      this.hideable = false;
-    }
-    return this.hideable;
-  }
-
   ngOnInit() {
   }
 
