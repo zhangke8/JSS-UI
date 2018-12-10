@@ -7,6 +7,14 @@
 
   </nav>
 
+
+    <ol class="breadcrumb" style="width:350px; background: transparent">
+      <li class="breadcrumb-item"><a [routerLink]="'/history'"  style="color:white;">Home</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="'/form'"  style="color:white;">Add Products</a></li>
+      <li class="breadcrumb-item active" aria-current="page"  style="color:white;">Review Products</li>
+    </ol>
+  
+
 <div class="container">
 
         <form #form="ngForm" (ngSubmit)="onSubmit()" class="write">
