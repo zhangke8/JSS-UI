@@ -1,0 +1,55 @@
+<body>
+
+<div class="bck">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+
+    <img src="http://joysonsafety.com//wp-content/uploads/2018/04/Joyson.png" style="width: 200px;height: 100px;">
+
+  </nav>
+
+  <div class="container">
+
+    <div class="card" style="width: 25rem; height: 33rem; ">
+      <div class="card-body">
+        <div class="col-md-6">
+
+          <p style="color: white;">PORTAL NAME </p>
+          <form #form="ngForm">
+            <div class="form-group">
+              <label for="Username" style="color: white;">Username:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="Username" class="form-control" id="Username" name="Username" [(ngModel)]="Username" [value] = "Username" style="width: 20rem;" >
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <label for="Username" style="color: white;">Password:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="Password" class="form-control" id="Password" name="Password" [(ngModel)]="Password" [value] = "Password" style="width: 20rem;" >
+            </div>
+
+            <br>
+
+            <div class="submitButtons" style="width: 20rem">
+              <button type="button" class="btn btn-primary" style="height:3rem" (click)="login()">Login</button>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+            </div>
+            <div class="submitButtons" style="width: 20rem">
+              <button type="button" class="btn btn-primary" style="height:3rem" (click)="clear()"><a href="" class="nav-link">Clear</a></button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<footer class="footer">
+  <p>©2018 Joyson Safety Systems. All Rights Reserved.</p>
+</footer>
+</body>

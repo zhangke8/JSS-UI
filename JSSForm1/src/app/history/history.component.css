@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Arial, serif;
+}
+
+label {
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+  }
+
+  body {
+
+    background-image: url("https://images.pexels.com/photos/34088/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+    min-height: 200vh;
+    /*background-color: transparent;*/
+    height: 100%;
+    box-sizing: border-box;
+  
+  }
+
+img {
+  filter:brightness(200%);
+}
+input {
+  display: inline-block;
+  text-align: left;
+  width:300px;
+}
+a:link {
+    text-decoration: none;
+}
+
+select {
+  display: inline-block;
+  text-align: right;
+  width:300px;
+}
+
+Body {
+  /* background-image: url("https://wallpapertag.com/wallpaper/full/e/9/8/755704-amazing-pics-for-computer-background-1920x1200.jpg");
+  background-size: cover; */
+  background-color: lightgray;
+  height: auto;
+}
+
+.tableHeader {
+  background-color: dodgerblue;
+  color: white;
+}
+td {
+  width: auto;
+}
+.table {
+  border: 3px solid dodgerblue;
+}
+.dataTable td {
+  border: 2px solid dodgerblue;
+}
+
+Button {
+  background-color: darkblue;
+  color:white;
+  float: right;
+}
+
+.submit {
+  background-color: darkblue;
+  color:white;
+  float: left;
+}
+
+.productivity {
+  background-color: green;
+  float: right;
+}
+.footer {
+  position: absolute;
+}
