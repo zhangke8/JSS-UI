@@ -1,19 +1,20 @@
 label {
-    display: inline-block;
-    text-align: left;
-    padding: 10px;
-  }
-
-  input {
-    display: inline-block;
-    text-align: left;
-    width:300px;
-  }
-
-  .container {
-    margin: auto;
-    padding: 10px;
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
 }
+
+input {
+  display: inline-block;
+  text-align: left;
+  width:300px;
+}
+
+.container {
+  margin: auto;
+  padding: 10px;
+}
+
 .header {
   background-color: dodgerblue;
 }
@@ -30,9 +31,11 @@ label:before {
 td {
   width: auto;
 }
+
 .table {
   border: 1px solid #dddddd;
 }
+
 .dataTable td {
   border: 1px solid #dddddd;
 }
@@ -47,8 +50,7 @@ td {
 }
 
  body {
-
-  background-image: url("https://images.pexels.com/photos/129208/pexels-photo-129208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-color: black;    
   overflow: hidden;
   background-size: cover;
   width: 100%;
@@ -56,16 +58,10 @@ td {
 
 } 
 
-.container {
-
-  /*background-image: url("https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
-  background-size: cover  ;
-
-}
-
 .footer {
-  position: absolute;
-  bottom: -10;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
   background-color: black;
   color: white;

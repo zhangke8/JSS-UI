@@ -2,7 +2,7 @@
     
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 
-    <img src="http://joysonsafety.com//wp-content/uploads/2018/04/Joyson.png" style="width: 200px;height: 100px;">
+    <img src="http://joysonsafety.com//wp-content/uploads/2018/04/Joyson.png" style="width: 200px;height: 80px;">
 
   </nav>
   <br>
@@ -19,10 +19,13 @@
     <div class="card" style = "width: 750px; height: 160px; background: transparent ">     
         <form #form="ngForm" (ngSubmit)="onSubmit()">
           
-            <div class="form-group">
+            <div class="form-group history">
                 <table class = "table">
                     <th class = "tableHeader" > Historical  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-                    <tr> <button class="btn btn-success" (click)="add()"><a href="" [routerLink]="['/form']"  style= "color:white;"> &nbsp;&nbsp;+Add new record&nbsp;&nbsp;  </a> </button> 
+                    
+                    <tr> 
+                        <br/>
+                        <button class="btn btn-success" (click)="add()"><a href="" [routerLink]="['/form']"  style= "color:white;"> &nbsp;&nbsp;+Add new record&nbsp;&nbsp;  </a> </button> 
                      </tr>
                     	  
                     <br/>
