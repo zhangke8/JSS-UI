@@ -32,27 +32,11 @@ connection.on('connect', function (err) {
 }
 );
 
-
+// Get port from environment and store in express
 var port = process.env.PORT || '3000';
-
 
 //Listen on provided PORT
 app.listen(port, () => console.log("Server is running"));
-
-
-// var api = require('./routes/api');
-
-// app.use(bodyparser.json());
-// app.use(bodyparser.urlencoded({extended: false}));
-
-// app.use(express.static(path.join(__dirname,'dist')));
-
-
-// app.get('/index',function(req,res){
-//     res.sendFile(__dirname+'/dist/index.html')
-// });
-
-// UI makes service request to get data from DB
 
 // getting data from DB
 app.get('/', function (req, res) {
@@ -67,7 +51,6 @@ app.get('/', function (req, res) {
         }
     );
 
-
     request.on('row', function (columns) {
         columns.forEach(function (column) {
             console.log("%s\t%s", column.metadata.colName, column.value);
@@ -76,7 +59,6 @@ app.get('/', function (req, res) {
     connection.execSql(request);
     res.send("Server Root");
 });
-
 
 app.post('/', function (req, res) {
     console.log("body " + req.body.username + " AND Password = " + req.body.password);
@@ -100,10 +82,4 @@ app.post('/', function (req, res) {
         });
     });
     connection.execSql(request);
-
 })
-
-// app.use('/',api);
-/*
-    Get port from environment and store in express
-*/
