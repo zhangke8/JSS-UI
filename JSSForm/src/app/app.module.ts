@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const routes : Routes = [
   { path: "", component: LoginComponent},
+  { path: "login", component: LoginComponent},
   { path: "history", component: HistoricalComponent},
   { path: "form", component: FormComponent},
   { path: "review", component: ReviewComponent}

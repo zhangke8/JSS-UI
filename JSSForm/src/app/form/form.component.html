@@ -14,7 +14,7 @@
              <ul class="nav navbar-nav navbar-right">
                <p class="navbar-right"><label style="color:white;"><b>Username</b></label>
 
-                 <p style="padding-left: 65px;" class="navbar-right"><button id="logout" type="submit" class="btn btn-success">Logout</button>
+                <p style="padding-left: 65px;" class="navbar-right"><button id="logout" type="submit" class="btn btn-success"><a href="" [routerLink]="['/login']" style="color: white" class="nav-link">Logout</a></button>
              </p>
              </ul>
 
@@ -76,7 +76,7 @@
                       <td><input type="number" class="form-control" min="0"> </td>
                   </tr>
                   <tr>
-                      <td> <label style="color:black"> Total # of lost time days for {{selectedDay}} </label> </td>
+                      <td> <label style="color:black">Total # of lost time days for {{selectedDay}} </label> </td>
                       <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
                   </tr>
                   <tr>
@@ -378,10 +378,10 @@
 
                 </div>
 
-                <br>
-                <br>
-                <br>
-                <br>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
 
                   <button class="btn btn-primary"  (ngSubmit)="onSubmit()"><a href="" [routerLink]="['/review']" style="color: white" class="nav-link">Save & Review</a></button>
         </form>

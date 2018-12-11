@@ -24,26 +24,30 @@ label {
   
   }
 
-  input {
-    display: inline-block;
-    text-align: left;
-    width:300px;
-  }
-  a:link {
+img {
+  filter:brightness(200%);
+}
+input {
+  display: inline-block;
+  text-align: left;
+  width:300px;
+}
+a:link {
     text-decoration: none;
 }
-  select {
-    display: inline-block;
-    text-align: right;
-    width:300px;
-  }
 
-  Body {
-    /* background-image: url("https://wallpapertag.com/wallpaper/full/e/9/8/755704-amazing-pics-for-computer-background-1920x1200.jpg");
-    background-size: cover; */
-    background-color: lightgray;
-    height: auto;
-  }
+select {
+  display: inline-block;
+  text-align: right;
+  width:300px;
+}
+
+Body {
+  /* background-image: url("https://wallpapertag.com/wallpaper/full/e/9/8/755704-amazing-pics-for-computer-background-1920x1200.jpg");
+  background-size: cover; */
+  background-color: lightgray;
+  height: auto;
+}
 
 .tableHeader {
   background-color: dodgerblue;

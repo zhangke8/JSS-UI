@@ -41,19 +41,19 @@
                     <th class = "header" colspan=2> Safety Parameters </th>
                   <tr>
                       <td><label style="color:black"># of Lost Time Incidents for the month </label> </td>
-                      <td><input type="text" class="form-control" required name="lostTimeIncidents" ngModel> </td>
+                      <td><input type="number" class="form-control" required name="lostTimeIncidents" ngModel> </td>
                   </tr>
                   <tr>
                       <td> <label style="color:black"> Total # of lost time days for the month </label> </td>
-                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                   </tr>
                   <tr>
                       <td> <label style="color:black">Total Employees on the first day of the month </label> </td>
-                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                   </tr>
                   <tr>
                       <td> <label style="color:black"> Total Employees on the last day of the month</label> </td>
-                      <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                      <td> <input type="number" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
                   </tr>
                 </table>
             </div>
@@ -121,15 +121,15 @@
                           <!-- inputs -->
                     <tr>
                         <td> <label style="color:black"> COGS </label> </td>
-                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                     </tr>
                     <tr>
                         <td> <label style="color:black"> Month end inventory value in local currency </label> </td>
-                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                     </tr>
                     <tr>
                         <td> <label style="color:black"> Previous Month end inventory value in local currency </label> </td>
-                        <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
                     </tr>
 
                       <br/>
@@ -140,19 +140,19 @@
 
 
                 </div>
-
+                <br/>
                 <button class="btn btn-primary" style="color: white; float:left;" (ngSubmit)="onSubmit()">Submit</button>
         </form>
 
-        <br>
-        <br>
+      
 
       </div>
 </div>
 
 <ng-template #content let-modal>
   <div>
-
+    <br/>
+    <br/>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>

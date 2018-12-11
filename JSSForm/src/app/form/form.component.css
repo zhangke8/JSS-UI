@@ -1,26 +1,24 @@
 label {
-    display: inline-block;
-    text-align: left;
-    padding: 10px;
-  }
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+}
 
+input {
+  display: inline-block;
+  text-align: left;
+  width:300px;
+}
 
+select {
+  display: inline-block;
+  text-align: right;
+  width:300px;
+}
 
-  input {
-    display: inline-block;
-    text-align: left;
-    width:300px;
-  }
-
-  select {
-    display: inline-block;
-    text-align: right;
-    width:300px;
-  }
-
-  .container {
-    margin: auto;
-    padding: 10px;
+.container {
+  margin: auto;
+  padding: 10px;
 }
 .header {
   background-color: dodgerblue;
@@ -29,9 +27,7 @@ label {
 }
 
 img {
-
   filter:brightness(200%);
-
 }
 
 td {
@@ -58,10 +54,7 @@ td {
 }
 
 .btn-success {
-
   float: right;
-
-
 }
 
 .container {
@@ -71,13 +64,12 @@ td {
 
 }
 
-label:before{
+label:before {
      content:"*" ;
      color:red
-     }
+}
 
  body {
-
   background-image: url("https://images.pexels.com/photos/34088/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   overflow: hidden;
   background-size: cover;
@@ -86,17 +78,17 @@ label:before{
   background-color: transparent;
   height: 100%;
   box-sizing: border-box;
-
 } 
 
-.footer {
+h5 {
+  color: white;
+}
 
-  position: fixed;
-  left: 0;
-  bottom: 0;
+.footer {
+  position: absolute;
+  bottom: -10;
   width: 100%;
-  /*background-color: black;*/
+  background-color: black;
   color: white;
   text-align: center;
-
 }

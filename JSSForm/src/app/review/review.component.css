@@ -19,9 +19,12 @@ label {
 }
 
 img {
-
   filter:brightness(200%);
+}
 
+label:before {
+  content:"*" ;
+  color:red
 }
 
 td {
@@ -61,17 +64,14 @@ td {
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  position: absolute;
+  bottom: -10;
   width: 100%;
-  /*background-color: black;*/
+  background-color: black;
   color: white;
   text-align: center;
 }
 
 .write {
-
   color: white;
-
 }
