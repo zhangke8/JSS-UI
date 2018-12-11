@@ -6,28 +6,31 @@
 }
 
 label {
-    display: inline-block;
-    text-align: left;
-    padding: 10px;
-  }
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+}
 
-  body {
-    background-color: black;
-    overflow: hidden;
-    background-size: cover;
-    width: 100%;
-    min-height: 200vh;
-    height: auto;
-    box-sizing: border-box;
-  }
+body {
+  background-color: black;
+  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  min-height: 200vh;
+  height: auto;
+  box-sizing: border-box;
+}
+
 img {
   filter:brightness(200%);
 }
+
 input {
   display: inline-block;
   text-align: left;
   width:300px;
 }
+
 a:link {
     text-decoration: none;
 }
@@ -42,9 +45,11 @@ select {
   background-color:rgb(42, 42, 202);
   color: white;
 }
+
 td {
   width: auto;
 }
+
 .table {
   border: 3px solid dodgerblue;
 }
@@ -69,6 +74,7 @@ Button {
   background-color: green;
   float: right;
 }
+
 .footer {
   position: fixed;
   left: 0;

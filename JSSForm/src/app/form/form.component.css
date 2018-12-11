@@ -33,9 +33,11 @@ img {
 td {
   width: auto;
 }
+
 .table {
   border: 1px solid #dddddd;
 }
+
 .dataTable td {
   border: 1px solid #dddddd;
 }
@@ -44,10 +46,12 @@ td {
   background-color: lightgreen;
   float: right;
 }
+
 .saveButton {
   background-color: lightgreen;
   float: left;
 }
+
 .productivity {
   background-color: green;
   float: right;

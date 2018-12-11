@@ -39,7 +39,7 @@ var port = process.env.PORT || '3000';
 app.listen(port, () => console.log("Server is running"));
 
 // getting data from DB
-app.get('/', function (req, res) {
+app.get('/login', function (req, res) {
     //   logger.info("Server Root");
     var request = new Request(
         "SELECT User_NAME FROM \"User\"WHERE USER_NAME = 'Ishmeet' AND Password = 'ish1234'",
@@ -60,7 +60,7 @@ app.get('/', function (req, res) {
     res.send("Server Root");
 });
 
-app.post('/', function (req, res) {
+app.post('/login', function (req, res) {
     console.log("body " + req.body.username + " AND Password = " + req.body.password);
     var request = new Request(
         "SELECT USER_NAME FROM \"User\" WHERE USER_NAME = '" + req.body.username + "' AND Password = '" + req.body.password + "'",//USER_NAME == req.body.username AND Password == req.body.password',

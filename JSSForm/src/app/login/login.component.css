@@ -12,21 +12,19 @@
 }
 
 img {
-    height: 150px;
-    width: 275px;
+  height: 150px;
+  width: 275px;
 }
 
 .submitButtons {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 .nav-link {
   color: white;
 }
-
 
 body {
   background-color: black;
@@ -35,7 +33,6 @@ body {
   width: 100%;
   min-height: 100vh;
 }
-
 
 img {
   filter:brightness(200%);

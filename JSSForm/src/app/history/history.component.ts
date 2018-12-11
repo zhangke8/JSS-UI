@@ -14,6 +14,7 @@ export class HistoricalComponent implements OnInit {
   add() {
  
   }
+  
   edit(){
  
   }
