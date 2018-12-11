@@ -47,21 +47,13 @@ td {
 }
 
  body {
-
-  background-image: url("https://images.pexels.com/photos/129208/pexels-photo-129208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-color: black;    
   overflow: hidden;
   background-size: cover;
   width: 100%;
   min-height: 100vh;
 
 } 
-
-.container {
-
-  /*background-image: url("https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
-  background-size: cover  ;
-
-}
 
 .footer {
   position: fixed;

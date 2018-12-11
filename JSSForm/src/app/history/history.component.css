@@ -12,18 +12,14 @@ label {
   }
 
   body {
-
-    background-image: url("https://images.pexels.com/photos/34088/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-color: black;
     overflow: hidden;
     background-size: cover;
     width: 100%;
     min-height: 200vh;
-    /*background-color: transparent;*/
-    height: 100%;
+    height: auto;
     box-sizing: border-box;
-  
   }
-
 img {
   filter:brightness(200%);
 }
@@ -42,15 +38,8 @@ select {
   width:300px;
 }
 
-Body {
-  /* background-image: url("https://wallpapertag.com/wallpaper/full/e/9/8/755704-amazing-pics-for-computer-background-1920x1200.jpg");
-  background-size: cover; */
-  background-color: lightgray;
-  height: auto;
-}
-
 .tableHeader {
-  background-color: dodgerblue;
+  background-color:rgb(42, 42, 202);
   color: white;
 }
 td {
@@ -59,6 +48,7 @@ td {
 .table {
   border: 3px solid dodgerblue;
 }
+
 .dataTable td {
   border: 2px solid dodgerblue;
 }
