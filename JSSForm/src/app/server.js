@@ -103,6 +103,38 @@ app.post('/', function (req, res) {
 
 })
 
+
+app.get('/form', (req, res) => {
+
+    res.send('Connected Form');
+});
+
+app.post('/form', (req, res) => {
+
+    if(err) {
+
+        console.log("SQL Connection Error: ". err);
+    }
+
+    else {
+
+        var querySQL = "INSERT INTO Plant SET ?";
+        var valuesSQL = {
+
+            "Region" : req.body.Region,
+            "Plant": req.body.Plant
+        };
+
+        var query = connection.query(querySQL, valuesSQL, function (err, result){
+            if(err){
+            console.error('SQL error: ', err);
+            return next(err);
+            }
+            
+        });
+    }
+})
+
 // app.use('/',api);
 /*
     Get port from environment and store in express
