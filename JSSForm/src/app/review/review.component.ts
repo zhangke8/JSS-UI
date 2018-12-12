@@ -17,6 +17,7 @@ export class ReviewComponent implements OnInit {
 
   constructor( private modalService: NgbModal, private router: Router ) {
   }
+  
   ngOnInit() {
   }
 

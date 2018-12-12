@@ -18,8 +18,9 @@ export class LoginComponent implements OnInit {
   public Username: string;
   public Password: string;
   login() {
-    alert(this.Username); 
-    alert(this.Password);
+    // alert(this.Username); 
+    // alert(this.Password);
+    // call login api
     setTimeout(() => {
       this.router.navigate(['/history']);
     }, 2000);

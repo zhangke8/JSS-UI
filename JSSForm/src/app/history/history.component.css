@@ -6,32 +6,31 @@
 }
 
 label {
-    display: inline-block;
-    text-align: left;
-    padding: 10px;
-  }
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+}
 
-  body {
-
-    background-image: url("https://images.pexels.com/photos/34088/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    overflow: hidden;
-    background-size: cover;
-    width: 100%;
-    min-height: 200vh;
-    /*background-color: transparent;*/
-    height: 100%;
-    box-sizing: border-box;
-  
-  }
+body {
+  background-color: black;
+  overflow: hidden;
+  background-size: cover;
+  width: 100%;
+  min-height: 200vh;
+  height: auto;
+  box-sizing: border-box;
+}
 
 img {
   filter:brightness(200%);
 }
+
 input {
   display: inline-block;
   text-align: left;
   width:300px;
 }
+
 a:link {
     text-decoration: none;
 }
@@ -42,23 +41,19 @@ select {
   width:300px;
 }
 
-Body {
-  /* background-image: url("https://wallpapertag.com/wallpaper/full/e/9/8/755704-amazing-pics-for-computer-background-1920x1200.jpg");
-  background-size: cover; */
-  background-color: lightgray;
-  height: auto;
-}
-
 .tableHeader {
-  background-color: dodgerblue;
+  background-color:rgb(42, 42, 202);
   color: white;
 }
+
 td {
   width: auto;
 }
+
 .table {
   border: 3px solid dodgerblue;
 }
+
 .dataTable td {
   border: 2px solid dodgerblue;
 }
@@ -79,6 +74,12 @@ Button {
   background-color: green;
   float: right;
 }
+
 .footer {
-  position: absolute;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
