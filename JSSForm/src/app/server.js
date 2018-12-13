@@ -85,6 +85,39 @@ app.post('/login', function (req, res) {
     connection.execSql(request);
 })
 
+app.post('/form/plant', function (req, res) {
+ 
+    //let Region = req.body.Region;
+    var plants  = {Plant_Name: 'ABC', Region: 'Michigan'}; 
+    
+    // if (!task) {
+    //     return res.status(400).send({ error:true, message: 'Please provide task' });
+    // }
+ 
+    var query = connection.execSql('INSERT INTO Plant SET ?', plants, function (error, results, fields) {
+        if (error) throw error;
+        // Neat!
+      });
+      console.log(query.sql);
+});
+
+app.post('/form/safety', function (req, res) {
+ 
+    //let Region = req.body.Region;
+    var safety  = {LOST_TIME_INCIDENT: '1', TOT_LOST_TIME_DAYS_MON: '2',TOT_EMP_FIRST_DAY_MON: '3' , TOT_EMP_LAST_DAY_MON: '4', EMP_LEFT_MON: '5', Cogs: '6', Mon_End_Inv_Local_Curr: '7', Pre_Mon_End_Inv_Local_Curr: '8'}; 
+     
+    
+    // if (!task) {
+    //     return res.status(400).send({ error:true, message: 'Please provide task' });
+    // }
+ 
+    var query = connection.execSql('INSERT INTO PLANT_KPI SET ?', safety, function (error, results, fields) {
+        if (error) throw error;
+        // Neat!
+      });
+      console.log(query.sql);
+});
+
 
 app.get('/review', function (req, res) {
 
@@ -238,3 +271,46 @@ app.get('/review/revenue', function (req, res) {
     
 });
 
+// get historical records from DB
+app.get('/history', function (req, res) {
+    var request = new Request(
+        "SELECT Top 10 Create_DATE, Plant_Name, Region FROM Plant ",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log("row", rows)
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+    let data = {};
+    let result = [];
+    request.on('row', function (columns) {
+        //res.send(data);
+        columns.forEach(function (column) {
+
+            // data.push(column.value);
+            // console.log(column.value);
+            data[column.metadata.colName] = column.value;
+            // data.push(item);
+            // item.clear;
+            // console.log("%s", column.value); 
+        });
+        console.log("data=======>", data, "\n");
+        result.push(data);
+        // return data
+    });
+
+    // request.end(){
+    //     res.send(result);
+    // }
+    func()
+    async function func(){
+        connection.execSql(request);
+        console.log("done quary");
+        res.send(result);
+    }
+
+    connection.execSql(request);
+    res.send("Server Root");
+});
