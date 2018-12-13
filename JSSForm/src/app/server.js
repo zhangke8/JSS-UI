@@ -38,6 +38,8 @@ var port = process.env.PORT || '3000';
 //Listen on provided PORT
 app.listen(port, () => console.log("Server is running"));
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // getting data from DB
 app.get('/login', function (req, res) {
     //   logger.info("Server Root");
@@ -85,6 +87,53 @@ app.post('/login', function (req, res) {
     connection.execSql(request);
 })
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// page 2
+// get historical records from DB
+app.get('/history', function (req, res) {
+    var request = new Request(
+        "SELECT Top 10 Create_DATE, Plant_Name, Region FROM Plant ",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log("row", rows)
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+    let data = {};
+    let result = [];
+    request.on('row', function (columns) {
+        //res.send(data);
+        columns.forEach(function (column) {
+
+            // data.push(column.value);
+            // console.log(column.value);
+            data[column.metadata.colName] = column.value;
+            // data.push(item);
+            // item.clear;
+            // console.log("%s", column.value); 
+        });
+        console.log("data=======>", data, "\n");
+        result.push(data);
+        // return data
+    });
+    // request.end(){
+    //     res.send(result);
+    // }
+    func()
+    async function func(){
+        connection.execSql(request);
+        console.log("done quary");
+        res.send(result);
+    }
+    
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// page 4
+
 app.post('/form/plant', function (req, res) {
  
     //let Region = req.body.Region;
@@ -105,7 +154,6 @@ app.post('/form/safety', function (req, res) {
  
     //let Region = req.body.Region;
     var safety  = {LOST_TIME_INCIDENT: '1', TOT_LOST_TIME_DAYS_MON: '2',TOT_EMP_FIRST_DAY_MON: '3' , TOT_EMP_LAST_DAY_MON: '4', EMP_LEFT_MON: '5', Cogs: '6', Mon_End_Inv_Local_Curr: '7', Pre_Mon_End_Inv_Local_Curr: '8'}; 
-     
     
     // if (!task) {
     //     return res.status(400).send({ error:true, message: 'Please provide task' });
@@ -168,31 +216,31 @@ app.get('/review/customers', function (req, res) {
     
 });
 
-app.get('/review/suppliers', function (req, res) {
+// app.get('/review/suppliers', function (req, res) {
 
-    var cache = [];
-    var request = new Request(
-        "SELECT SUPPLIER_NAME from SUPPLIER;",
-        function (err, rowCount, rows) {
-            if (rowCount == 0) {
-                console.log("empty");
-            }
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
+//     var cache = [];
+//     var request = new Request(
+//         "SELECT SUPPLIER_NAME from SUPPLIER;",
+//         function (err, rowCount, rows) {
+//             if (rowCount == 0) {
+//                 console.log("empty");
+//             }
+//             console.log(rowCount + ' row(s) returned');
+//         }
+//     );
 
-    //console.log(request);
-    request.on('row', function (columns) {
-        //console.log(column);
-        columns.forEach(function (column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
+//     //console.log(request);
+//     request.on('row', function (columns) {
+//         //console.log(column);
+//         columns.forEach(function (column) {
+//             console.log("%s\t%s", column.metadata.colName, column.value);
             
-        });
-    });
-    connection.execSql(request);
-    res.send("Server Root");
+//         });
+//     });
+//     connection.execSql(request);
+//     res.send("Server Root");
     
-});
+// });
 
 app.get('/review/prod', function (req, res) {
 
@@ -222,7 +270,7 @@ app.get('/review/safety', function (req, res) {
 
    // var cache = [];
     var request = new Request(
-        "SELECT LOST_TIME_INCIDENT, TOT_LOST_TIME_DAYS_MON, TOT_EMP_FIRST_DAY_MON, TOT_EMP_LAST_DAY_MON, EMP_LEFT_MON, Cogs, Mon_End_Inv_Local_Curr, Pre_Mon_End_Inv_Local_Curr FROM PLANT_KPI;",
+        "SELECT LOST_TIME_INCIDENT, TOT_LOST_TIME_DAYS_MON, TOT_EMP_FIRST_DAY_MON, TOT_EMP_LAST_DAY_MON FROM PLANT_KPI;",
         function (err, rowCount, rows) {
             if (rowCount == 0) {
                 console.log("empty");
@@ -247,7 +295,7 @@ app.get('/review/revenue', function (req, res) {
 
     var cache = [];
     var request = new Request(
-        "select REVENUE_MON, Tot_Amt_Paid from SUPPLIER_KPI",
+        "select REVENUE_MON from Product_KPI",
         function (err, rowCount, rows) {
             if (rowCount == 0) {
                 console.log("empty");
@@ -256,7 +304,6 @@ app.get('/review/revenue', function (req, res) {
         }
     );
 
-   
     connection.execSql(request);
 
     request.on('row', function (columns) {
