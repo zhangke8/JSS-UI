@@ -41,49 +41,52 @@ app.listen(port, () => console.log("Server is running"));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // getting data from DB
-app.get('/login', function (req, res) {
-    //   logger.info("Server Root");
-    var request = new Request(
-        "SELECT User_NAME FROM \"User\"WHERE USER_NAME = 'Ishmeet' AND Password = 'ish1234'",
-        function (err, rowCount, rows) {
-            if (rowCount == 0) {
-                console.log("empty");
-            }
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
+// app.get('/login', function (req, res) {
+//     //   logger.info("Server Root");
+//     var request = new Request(
+//         "SELECT User_NAME FROM \"User\"WHERE USER_NAME = 'Ishmeet' AND Password = 'ish1234'",
+//         function (err, rowCount, rows) {
+//             if (rowCount == 0) {
+//                 console.log("empty");
+//             }
+//             console.log(rowCount + ' row(s) returned');
+//         }
+//     );
 
-    request.on('row', function (columns) {
-        columns.forEach(function (column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-            // res.send(column.metadata.colName, column.value);
-        });
-    });
-    connection.execSql(request);
-    res.send("Server Root");
-});
+//     request.on('row', function (columns) {
+//         columns.forEach(function (column) {
+//             console.log("%s\t%s", column.metadata.colName, column.value);
+//             // res.send(column.metadata.colName, column.value);
+//         });
+//     });
+//     connection.execSql(request);
+//     res.send("Server Root");
+// });
 
 app.post('/login', function (req, res) {
     console.log("body " + req.body.username + " AND Password = " + req.body.password);
     var request = new Request(
-        "SELECT USER_NAME FROM \"User\" WHERE USER_NAME = '" + req.body.username + "' AND Password = '" + req.body.password + "'",//USER_NAME == req.body.username AND Password == req.body.password',
+        "SELECT USER_NAME FROM \"User\" WHERE USER_NAME = '" + req.body.username + "' AND Password = '" + req.body.password + "'",
         function (err, rowCount, rows) {
             if (err) {
                 res.send(err);
             }
             else {
-                console.log("post " + rowCount + ' row(s) returned');
-                console.log(rowCount);
-                res.status(200).send("hi")
+                if (rowCount == 1) {
+                    res.status(200).send("authenticated");
+                }
+                // console.log("post " + rowCount + ' row(s) returned');
+                // console.log(rowCount);
+                // res.status(200).send("hi")
             }
 
         }
     );
-    request.on('row', function (columns) {
-        columns.forEach(function (column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-        });
-    });
+    // request.on('row', function (columns) {
+    //     columns.forEach(function (column) {
+    //         console.log("%s\t%s", column.metadata.colName, column.value);
+    //     });
+    // });
     connection.execSql(request);
 })
 
@@ -117,17 +120,19 @@ app.get('/history', function (req, res) {
         });
         console.log("data=======>", data, "\n");
         result.push(data);
+        res.status(200).send("data found!");
+        // res.send(result);
         // return data
     });
     // request.end(){
     //     res.send(result);
     // }
-    func()
-    async function func(){
-        connection.execSql(request);
-        console.log("done quary");
-        res.send(result);
-    }
+    // func()
+    // async function func(){
+    //     connection.execSql(request);
+    //     console.log("done quary");
+    //     res.send(result);
+    // }
     
 });
 
@@ -143,17 +148,35 @@ app.post('/form/plant', function (req, res) {
     //     return res.status(400).send({ error:true, message: 'Please provide task' });
     // }
  
-    var query = connection.execSql('INSERT INTO Plant SET ?', plants, function (error, results, fields) {
+    var query = connection.execSql("INSERT INTO Plant (Plant_Name, Region) values ( 'plants')", function (error, results, fields) {
         if (error) throw error;
         // Neat!
       });
       console.log(query.sql);
+    console.log("here");
+    res.send("hello");
 });
 
 app.post('/form/safety', function (req, res) {
  
     //let Region = req.body.Region;
     var safety  = {LOST_TIME_INCIDENT: '1', TOT_LOST_TIME_DAYS_MON: '2',TOT_EMP_FIRST_DAY_MON: '3' , TOT_EMP_LAST_DAY_MON: '4', EMP_LEFT_MON: '5', Cogs: '6', Mon_End_Inv_Local_Curr: '7', Pre_Mon_End_Inv_Local_Curr: '8'}; 
+    
+    // if (!task) {
+    //     return res.status(400).send({ error:true, message: 'Please provide task' });
+    // }
+    "INSERT INTO Plant (Plant_Name, Region) values ( 'plants')"
+    var query = connection.execSql("INSERT INTO PLANT_KPI () values ('safety')", function (error, results, fields) {
+        if (error) throw error;
+        // Neat!
+      });
+      console.log(query.sql);
+});
+
+app.post('/form/quality', function (req, res) {
+ 
+    //let Region = req.body.Region;
+    var safety  = {Customer = '1', Name = '2', rejectedQty = '3', Shipped = '4', Scrap = '5', Compliants ='6'}; 
     
     // if (!task) {
     //     return res.status(400).send({ error:true, message: 'Please provide task' });
@@ -166,6 +189,22 @@ app.post('/form/safety', function (req, res) {
       console.log(query.sql);
 });
 
+app.post('/form/productivity', function (req, res) {
+ 
+    //let Region = req.body.Region;
+    var delivery = {product = '1', sub = '2', customer = '3', qty = '4'};
+    var freightIn = {product = '1', supplier = '2', freightIn = '3'};
+    var freightOut = {product = '1', customer = '2', freightOut = '3'};
+    // if (!task) {
+    //     return res.status(400).send({ error:true, message: 'Please provide task' });
+    // }
+ 
+    var query = connection.execSql('INSERT INTO PLANT_KPI SET ?', safety, function (error, results, fields) {
+        if (error) throw error;
+        // Neat!
+      });
+      console.log(query.sql);
+});
 
 app.get('/review', function (req, res) {
 
