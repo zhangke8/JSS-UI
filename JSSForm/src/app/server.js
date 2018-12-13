@@ -86,6 +86,47 @@ app.post('/login', function (req, res) {
 })
 
 
+// get historical records from DB
+app.get('/history', function (req, res) {
+    var request = new Request(
+        "SELECT Top 10 Create_DATE, Plant_Name, Region FROM Plant ",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log("row", rows)
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+    let data = {};
+    let result = [];
+    request.on('row', function (columns) {
+        //res.send(data);
+        columns.forEach(function (column) {
+
+            // data.push(column.value);
+            // console.log(column.value);
+            data[column.metadata.colName] = column.value;
+            // data.push(item);
+            // item.clear;
+            // console.log("%s", column.value); 
+        });
+        console.log("data=======>", data, "\n");
+        result.push(data);
+        // return data
+    });
+    // request.end(){
+    //     res.send(result);
+    // }
+    func()
+    async function func(){
+        connection.execSql(request);
+        console.log("done quary");
+        res.send(result);
+    }
+    
+});
+
 app.get('/review', function (req, res) {
 
     var cache = [];
@@ -135,31 +176,32 @@ app.get('/review/customers', function (req, res) {
     
 });
 
-app.get('/review/suppliers', function (req, res) {
+// client decided to kill
+// app.get('/review/suppliers', function (req, res) {
 
-    var cache = [];
-    var request = new Request(
-        "SELECT SUPPLIER_NAME from SUPPLIER;",
-        function (err, rowCount, rows) {
-            if (rowCount == 0) {
-                console.log("empty");
-            }
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
+//     var cache = [];
+//     var request = new Request(
+//         "SELECT SUPPLIER_NAME from SUPPLIER",
+//         function (err, rowCount, rows) {
+//             if (rowCount == 0) {
+//                 console.log("empty");
+//             }
+//             console.log(rowCount + ' row(s) returned');
+//         }
+//     );
 
-    //console.log(request);
-    request.on('row', function (columns) {
-        //console.log(column);
-        columns.forEach(function (column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
+//     //console.log(request);
+//     request.on('row', function (columns) {
+//         //console.log(column);
+//         columns.forEach(function (column) {
+//             console.log("%s\t%s", column.metadata.colName, column.value);
             
-        });
-    });
-    connection.execSql(request);
-    res.send("Server Root");
+//         });
+//     });
+//     connection.execSql(request);
+//     res.send("Server Root");
     
-});
+// });
 
 app.get('/review/prod', function (req, res) {
 
@@ -185,17 +227,17 @@ app.get('/review/prod', function (req, res) {
     
 });
 
+// broken
 app.get('/review/safety', function (req, res) {
 
    // var cache = [];
     var request = new Request(
-        "SELECT LOST_TIME_INCIDENT, TOT_LOST_TIME_DAYS_MON, TOT_EMP_FIRST_DAY_MON, TOT_EMP_LAST_DAY_MON, EMP_LEFT_MON, Cogs, Mon_End_Inv_Local_Curr, Pre_Mon_End_Inv_Local_Curr FROM PLANT_KPI;",
+        "SELECT LOST_TIME_INCIDENT, TOT_LOST_TIME_DAYS_MON, TOT_EMP_FIRST_DAY_MON, TOT_EMP_LAST_DAY_MON FROM PLANT_KPI",
         function (err, rowCount, rows) {
             if (rowCount == 0) {
                 console.log("empty");
             }
             console.log(rowCount + ' row(s) returned');
-            
         }
     );
 
@@ -210,11 +252,12 @@ app.get('/review/safety', function (req, res) {
     
 });
 
+// broken
 app.get('/review/revenue', function (req, res) {
 
     var cache = [];
     var request = new Request(
-        "select REVENUE_MON, Tot_Amt_Paid from SUPPLIER_KPI",
+        "select REVENUE_MON, Tot_Amt_Paid from Product_KPI",
         function (err, rowCount, rows) {
             if (rowCount == 0) {
                 console.log("empty");
@@ -223,7 +266,6 @@ app.get('/review/revenue', function (req, res) {
         }
     );
 
-   
     connection.execSql(request);
 
     request.on('row', function (columns) {
@@ -232,9 +274,6 @@ app.get('/review/revenue', function (req, res) {
             //res.send(column.metadata.colName, column.value);
         });
     });
-
-    res.send("Server Root");
-
-    
+    res.send("Server Root");    
 });
 
