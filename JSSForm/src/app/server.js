@@ -54,6 +54,7 @@ app.get('/login', function (req, res) {
     request.on('row', function (columns) {
         columns.forEach(function (column) {
             console.log("%s\t%s", column.metadata.colName, column.value);
+            // res.send(column.metadata.colName, column.value);
         });
     });
     connection.execSql(request);
@@ -84,26 +85,7 @@ app.post('/login', function (req, res) {
     connection.execSql(request);
 })
 
-// get historical records from DB
-app.get('/history', function (req, res) {
-    var request = new Request(
-        "SELECT Create_DATE, Plant_Name, Region FROM Plant",
-        function (err, rowCount, rows) {
-            if (rowCount == 0) {
-                console.log("empty");
-            }
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
 
-    request.on('row', function (columns) {
-        columns.forEach(function (column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-        });
-    });
-    connection.execSql(request);
-    res.send("Server Root");
-});
 
 app.get('/review', function (req, res) {
 
@@ -253,5 +235,6 @@ app.get('/review/revenue', function (req, res) {
     });
 
     res.send("Server Root");
+
     
 });
