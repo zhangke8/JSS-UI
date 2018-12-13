@@ -104,3 +104,154 @@ app.get('/history', function (req, res) {
     connection.execSql(request);
     res.send("Server Root");
 });
+
+app.get('/review', function (req, res) {
+
+    var cache = [];
+    var request = new Request(
+        "SELECT Create_DATE, Plant_Name, Region FROM Plant",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log(rowCount + ' row(s) returned');
+            //console.log(rows);
+        }
+    );
+
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+            //res.send(request);
+        });
+    });
+    connection.execSql(request);
+    res.send("Server Root");
+    
+});
+
+app.get('/review/customers', function (req, res) {
+
+    var cache = [];
+    var request = new Request(
+        "SELECT CUST_NAME from Customer;",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+            //res.send(column.metadata.colName, column.value);
+        });
+    });
+    connection.execSql(request);
+    res.send("Server Root");
+    
+});
+
+app.get('/review/suppliers', function (req, res) {
+
+    var cache = [];
+    var request = new Request(
+        "SELECT SUPPLIER_NAME from SUPPLIER;",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+
+    //console.log(request);
+    request.on('row', function (columns) {
+        //console.log(column);
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+            
+        });
+    });
+    connection.execSql(request);
+    res.send("Server Root");
+    
+});
+
+app.get('/review/prod', function (req, res) {
+
+    var cache = [];
+    var request = new Request(
+        "SELECT PROD_TYPE, SUB_PROD from PRODUCT;",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+            //res.send(column.metadata.colName, column.value);
+        });
+    });
+    connection.execSql(request);
+    res.send("Server Root");
+    
+});
+
+app.get('/review/safety', function (req, res) {
+
+   // var cache = [];
+    var request = new Request(
+        "SELECT LOST_TIME_INCIDENT, TOT_LOST_TIME_DAYS_MON, TOT_EMP_FIRST_DAY_MON, TOT_EMP_LAST_DAY_MON, EMP_LEFT_MON, Cogs, Mon_End_Inv_Local_Curr, Pre_Mon_End_Inv_Local_Curr FROM PLANT_KPI;",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log(rowCount + ' row(s) returned');
+            
+        }
+    );
+
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+            //res.send(column.metadata.colName, column.value);
+        });
+    });
+    connection.execSql(request);
+    res.send("Server Root");
+    
+});
+
+app.get('/review/revenue', function (req, res) {
+
+    var cache = [];
+    var request = new Request(
+        "select REVENUE_MON, Tot_Amt_Paid from SUPPLIER_KPI",
+        function (err, rowCount, rows) {
+            if (rowCount == 0) {
+                console.log("empty");
+            }
+            console.log(rowCount + ' row(s) returned');
+        }
+    );
+
+   
+    connection.execSql(request);
+
+    request.on('row', function (columns) {
+        columns.forEach(function (column) {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+            //res.send(column.metadata.colName, column.value);
+        });
+    });
+
+    res.send("Server Root");
+    
+});
