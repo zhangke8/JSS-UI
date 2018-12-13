@@ -54,6 +54,7 @@ app.get('/login', function (req, res) {
     request.on('row', function (columns) {
         columns.forEach(function (column) {
             console.log("%s\t%s", column.metadata.colName, column.value);
+            // res.send(column.metadata.colName, column.value);
         });
     });
     connection.execSql(request);
@@ -87,20 +88,40 @@ app.post('/login', function (req, res) {
 // get historical records from DB
 app.get('/history', function (req, res) {
     var request = new Request(
-        "SELECT Create_DATE, Plant_Name, Region FROM Plant",
+        "SELECT Top 10 Create_DATE, Plant_Name, Region FROM Plant ",
         function (err, rowCount, rows) {
             if (rowCount == 0) {
                 console.log("empty");
             }
+            console.log("row", rows)
             console.log(rowCount + ' row(s) returned');
         }
     );
-
+    let data = {};
+    let result = [];
     request.on('row', function (columns) {
+        //res.send(data);
         columns.forEach(function (column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
+
+            // data.push(column.value);
+            // console.log(column.value);
+            data[column.metadata.colName] = column.value;
+            // data.push(item);
+            // item.clear;
+            // console.log("%s", column.value); 
         });
+        console.log("data=======>", data, "\n");
+        result.push(data);
+        // return data
     });
-    connection.execSql(request);
-    res.send("Server Root");
+    // request.end(){
+    //     res.send(result);
+    // }
+    func()
+    async function func(){
+        connection.execSql(request);
+        console.log("done quary");
+        res.send(result);
+    }
+    
 });
