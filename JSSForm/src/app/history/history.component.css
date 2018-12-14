@@ -49,6 +49,8 @@ select {
 
 .table {
   border: 3px solid darkgray;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .dataTable td {

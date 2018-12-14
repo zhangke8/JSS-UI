@@ -223,17 +223,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td> <label style="color:black"> Sub Product </label> </td>
-                            <td>
-                                <select class="form-control">
-                                    <option *ngFor="let type of productTypes">
-                                        {{ type }}
-                                    </option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <label style="color:black">Customer/Supplier </label> </td>
+                            <td> <label style="color:black">Customer Name</label> </td>
                             <td>
                                 <select class="form-control">
                                     <option *ngFor="let type of productTypes">
@@ -272,11 +262,8 @@
                             </table>
                     <br/>
 
-                    <tr style="color:black;"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show3')">+ Add a Record</button> </b></tr>
+                    <tr style="color:black;"> <b> Productivity KPIs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show3')">+ Add a Record</button> </b></tr>
                       <div class="card" style="width:585px;background:lightgrey;  align-items:center" *ngIf="show3 === true">
-
-                          <tr style="color:black;"><b>Premium Freight In</b></tr>
-
                             <tr>
                                 <td> <label style="color:black">Select a Product </label> </td>
                                 <td>
@@ -288,45 +275,48 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td> <label style="color:black">Supplier Name</label> </td>
-                                <td>
-                                    <select class="form-control">
-                                        <option *ngFor="let type of productTypes">
-                                            {{ type }}
-                                        </option>
-                                    </select>
-                                </td>
+                                <td> <label style="color:black">Number of employees who left during the month</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="employeeLeft" ngModel> </td>
                             </tr>
                             <tr>
-                                <td> <label style="color:black">Cost of Premium Freight In</label> </td>
-                                <td>
-                                    <select class="form-control">
-                                        <option *ngFor="let type of productTypes">
-                                            {{ type }}
-                                        </option>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr style="color:black;"><b>Premium Freight Out</b></tr>
-
-                            <tr>
-                                <td> <label style="color:black">Select a Product</label> </td>
-                                <td>
-                                    <select class="form-control">
-                                        <option *ngFor="let type of productTypes">
-                                            {{ type }}
-                                        </option>
-                                    </select>
-                                </td>
+                                <td> <label style="color:black">Total Employees on first day of the month</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
                             </tr>
                             <tr>
-                                <td> <label style="color:black">Customer Name</label> </td>
-                                <td> <input type="text" class="form-control inputSize" required name="employeeHours" ngModel> </td>
+                                <td> <label style="color:black">Total Employees on last day the month</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
                             </tr>
                             <tr>
-                                <td> <label style="color:black">$Cost of Premium Freight Out</label> </td>
-                                <td> <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
+                                <td> <label style="color:black">$ Cost of Premium Freight In</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">$ Cost of premium freight Out</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">$ Revenue for the month</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">COGS</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">Month end inventory value in local currency</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">Previous Month end inventory value in local currency</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">MFG Costs from P&L</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
+                            </tr>
+                            <tr>
+                                <td> <label style="color:black">Overtime Costs from P&L</label> </td>
+                                <td> <input type="text" class="form-control inputSize" required name="totalEmployees" ngModel> </td>
                             </tr>
 
                             <button class="btn btn-success" style="float: right; width:75px;" (click)="toggle('show3')">Save</button>
@@ -347,22 +337,7 @@
                                 <td style="color:black">Last Updated Date</td>
                             </table>
                           <!-- inputs -->
-                    <tr>
-                        <td> <label style="color:black"> COGS </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel></td>
-
-                    </tr>
-                    <tr>
-                        <td> <label style="color:black"> Month end inventory value in local currency </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
-
-                    </tr>
-                    <tr>
-                        <td> <label style="color:black"> Previous Month end inventory value in local currency </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel></td>
-
-                    </tr>
+                   
 
                       <br/>
 
