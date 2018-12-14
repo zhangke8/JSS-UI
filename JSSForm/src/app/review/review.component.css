@@ -41,11 +41,6 @@ td {
 }
 
 .editButton {
-  float:right;
-}
-
-.saveButton {
-  background-color: lightgreen;
   float: right;
 }
 

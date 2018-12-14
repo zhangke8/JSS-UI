@@ -47,21 +47,15 @@ select {
   color: white;
 }
 
-td {
-  width: auto;
-}
-
 .table {
   border: 3px solid darkgray;
-  margin: auto;
-  padding: auto;
 }
 
 .dataTable td {
   border: 1px solid #dddddd;
   background-color: transparent;
-  margin: auto;
-  padding: auto;
+  padding-right: 50px;
+  padding-left: 50px;
   width: 100%;
 }
 
@@ -69,17 +63,6 @@ td {
 Button {
   background-color: darkblue;
   color:white;
-  float: right;
-}
-
-.submit {
-  background-color: darkblue;
-  color:white;
-  float: left;
-}
-
-.productivity {
-  background-color: green;
   float: right;
 }
 
