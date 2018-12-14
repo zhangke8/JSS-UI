@@ -53,11 +53,21 @@ td {
 
 .table {
   border: 3px solid dodgerblue;
+  margin: auto;
+  padding: auto;
 }
 
 .dataTable td {
-  border: 2px solid dodgerblue;
+  border: 1px solid #dddddd;
+  background-color: transparent;
+  margin: auto;
+  padding: auto;
+  width: 100%;
 }
+
+/* .dataTable td {
+  border: 2px solid dodgerblue;
+} */
 
 Button {
   background-color: darkblue;
