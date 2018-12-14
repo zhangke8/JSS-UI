@@ -43,7 +43,7 @@ select {
 }
 
 .tableHeader {
-  background-color:rgb(42, 42, 202);
+  background-color:rgb(54, 109, 211);
   color: white;
 }
 
@@ -52,12 +52,19 @@ td {
 }
 
 .table {
-  border: 3px solid dodgerblue;
+  border: 3px solid darkgray;
+  margin: auto;
+  padding: auto;
 }
 
 .dataTable td {
-  border: 2px solid dodgerblue;
+  border: 1px solid #dddddd;
+  background-color: transparent;
+  margin: auto;
+  padding: auto;
+  width: 100%;
 }
+
 
 Button {
   background-color: darkblue;
