@@ -64,6 +64,7 @@
                 <table class = "table">
                     <th class = "header" > Quality  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
                     <tr> <button class="btn btn-success editButton"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </tr>
+                    <br/>
                   <!-- data table -->
                   <table class="dataTable">
                           <td style="color:black">S.no</td>
@@ -88,58 +89,60 @@
               <br/>
 
               <div class="card" style="width:1200px">
-                    <table class="table">
-                        <th class = "header" colspan=2> Productivity  </th>
-                        <tr style="color:black"> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> </tr>
-                        <tr> <button class="btn btn-success editButton"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </tr>
-                        <!-- data table -->
-                        <table class="dataTable">
-                                <td style="color:black">S.No</td>
-                                <td style="color:black">Product</td>
-                                <td style="color:black">Sub Product</td>
-                                <td style="color:black">Customer/Supplier Name</td>
-                                <td style="color:black">Qty of conforming products shipped for the month</td>
-                                <td style="color:black">Total Qty of Product Shipped for the month</td>
-                                <td style="color:black">Created Date</td>
-                                <td style="color:black">Last Updated Date</td>
-                            </table>
-                    <br/>
-                    <tr style="color:black"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b></tr>
-                    <tr> <button class="btn btn-success editButton"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </tr>
-                        <!-- data table -->
-                          <table class="dataTable">
-                                <td style="color:black">S.No</td>
-                                <td style="color:black">Product</td>
-                                <td style="color:black">Sub Product</td>
-                                <td style="color:black">Premium Freight In/Out</td>
-                                <td style="color:black">Customer/Supplier Name</td>
-                                <td style="color:black">$ Cost of premium freight for the month</td>
-                                <td style="color:black">$ Revenue for the month</td>
-                                <td style="color:black">Created Date</td>
-                                <td style="color:black">Last Updated Date</td>
-                            </table>
-                          <!-- inputs -->
-                    <tr>
-                        <td> <label style="color:black"> COGS </label> </td>
-                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
-                    </tr>
-                    <tr>
-                        <td> <label style="color:black"> Month end inventory value in local currency </label> </td>
-                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
-                    </tr>
-                    <tr>
-                        <td> <label style="color:black"> Previous Month end inventory value in local currency </label> </td>
-                        <td> <input type="number" class="form-control inputSize" required name="employeeHours" ngModel> </td>
-                    </tr>
+                <table class="table">
+                    <th class = "header" colspan=2> Productivity  </th>
+                    <tr style="color:black;"> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-success editButton"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </b> </tr>
+                 <br/>
+                    <!-- data table -->
+                    <table class="dataTable">
+                            <td style="color:black">S.No</td>
+                            <td style="color:black">Product</td>
+                            <td style="color:black">Sub Product</td>
+                            <td style="color:black">Customer/Supplier Name</td>
+                            <td style="color:black">Qty of conforming products shipped for the month</td>
+                            <td style="color:black">Total Qty of Product Shipped for the month</td>
+                            <td style="color:black">Created Date</td>
+                            <td style="color:black">Last Updated Date</td>
+                        </table>
+                <br/>
 
-                      <br/>
+                <tr style="color:black;"> <b> Premium Freight  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-success editButton"> <a href="" [routerLink]="['/form']" style="color: white;" class="nav-link">Edit</a></button> </b></tr>
 
-                    </table>
-                    <br/>
+                <br/>
+                      <!-- data table -->
+                      <table class="dataTable">
+                            <td style="color:black">S.No</td>
+                            <td style="color:black">Product</td>
+                            <td style="color:black">Sub Product</td>
+                            <td style="color:black">Premium Freight In/Out</td>
+                            <td style="color:black">Customer/Supplier Name</td>
+                            <td style="color:black">$ Cost of premium freight for the month</td>
+                            <td style="color:black">$ Revenue for the month</td>
+                            <td style="color:black">Created Date</td>
+                            <td style="color:black">Last Updated Date</td>
+                        </table>
+                      <!-- inputs -->
+                <tr>
+                    <td> <label style="color:black"> COGS </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel></td>
 
+                </tr>
+                <tr>
+                    <td> <label style="color:black"> Month end inventory value in local currency </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel> </td>
 
+                </tr>
+                <tr>
+                    <td> <label style="color:black"> Previous Month end inventory value in local currency </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" class="form-control inputSize" required name="employeeHours" min="0" ngModel></td>
 
-                </div>
+                </tr>
+            </table>
+                <br/>
+
+            </div>
+                <br/>
                 <button class="btn btn-primary" style="color: white; float:left;" (ngSubmit)="onSubmit()">Submit</button>
                 <br/>
                 <br/>

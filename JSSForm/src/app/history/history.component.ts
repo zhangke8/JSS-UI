@@ -19,10 +19,6 @@ export class HistoricalComponent implements OnInit {
  
   }
 
-  onSubmit() {
-    
-  }
-
   ngOnInit() {
  
   }
