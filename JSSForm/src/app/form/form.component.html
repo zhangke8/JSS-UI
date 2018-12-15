@@ -107,7 +107,10 @@
 
                         <div class="card" style="width:610px;background:lightgrey; align-items:center" *ngIf="show1 === true">
                             <!-- drop downs -->
-                            <tr>
+                            <input type="radio" name="names" value="Customer" [(ngModel)]="selectedLevel"> Customer<br>
+                            <input type="radio" name="names" value="Supplier" [(ngModel)]="selectedLevel"> Supplier<br>
+
+                            <!-- <tr>
                                     <td> <label style="color:black">Customer/Supplier</label> </td>
                                     <td>
                                         <select class="form-control" [(ngModel)]="selectedLevel" name="names">
@@ -117,7 +120,7 @@
                                         </select>
 
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                         <td> <label style="color:black">{{ selectedLevel }} Name</label> </td>
                                         <td>
