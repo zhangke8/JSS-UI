@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Arial, serif;
+}
+
 label {
   display: inline-block;
   text-align: left;
@@ -20,6 +27,7 @@ select {
   margin: auto;
   padding: 10px;
 }
+
 .header {
   background-color: dodgerblue;
   align-items: center;
@@ -27,7 +35,7 @@ select {
 }
 
 img {
-  filter:brightness(200%);
+  filter: brightness(200%);
 }
 
 td {

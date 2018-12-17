@@ -21,44 +21,43 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  margin: auto;
+  padding: 10px;
+}
 
 img {
   filter:brightness(200%);
-}
-
-input {
-  display: inline-block;
-  text-align: left;
-  width:300px;
 }
 
 a:link {
     text-decoration: none;
 }
 
-select {
-  display: inline-block;
-  text-align: right;
-  width:300px;
-}
 
-.tableHeader {
-  background-color:rgb(54, 109, 211);
+.header {
+  background-color: dodgerblue;
+  align-items: center;
   color: white;
 }
 
+td {
+  width: auto;
+}
+
 .table {
-  border: 3px solid darkgray;
-  padding-right: 50px;
-  padding-left: 50px;
+  border: 1px solid #dddddd;
 }
 
 .dataTable td {
   border: 1px solid #dddddd;
   background-color: transparent;
-  padding-right: 50px;
-  padding-left: 50px;
+  margin:0 auto;
   width: 100%;
+}
+
+.card {
+  margin:0 auto;
 }
 
 

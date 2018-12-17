@@ -102,11 +102,15 @@
             <div class="card" style="width:1200px; ">
                   <table class = "table">
                       <th class = "header" > Quality  </th>
-                      <tr> <button  class="btn btn-success"  (click)="toggle('show1')">+ Add a product</button></tr>
+                      
+                      <tr> <button  class="btn btn-success"  (click)="toggle('show1')">{{ show1 == false ? '+ Add a product' : 'Close' }}</button></tr>
 
                         <div class="card" style="width:610px;background:lightgrey; align-items:center" *ngIf="show1 === true">
                             <!-- drop downs -->
-                            <tr>
+                            <input type="radio" name="names" value="Customer" [(ngModel)]="selectedLevel"> Customer<br>
+                            <input type="radio" name="names" value="Supplier" [(ngModel)]="selectedLevel"> Supplier<br>
+
+                            <!-- <tr>
                                     <td> <label style="color:black">Customer/Supplier</label> </td>
                                     <td>
                                         <select class="form-control" [(ngModel)]="selectedLevel" name="names">
@@ -116,7 +120,7 @@
                                         </select>
 
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                         <td> <label style="color:black">{{ selectedLevel }} Name</label> </td>
                                         <td>
@@ -208,7 +212,7 @@
               <div class="card" style="width:1200px">
                     <table class="table">
                         <th class = "header" colspan=2> Productivity  </th>
-                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show2')">+ Add a Record</button> </b> </tr>
+                        <tr> <b> On-Time Delivery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show2')">{{ show2 == false ? '+ Add a product' : 'Close' }}</button> </b> </tr>
 
                      <div class="card" style="width:610px;background:lightgrey; align-items:center" *ngIf="show2 === true">
                        <!-- drop downs -->
@@ -262,7 +266,7 @@
                             </table>
                     <br/>
 
-                    <tr style="color:black;"> <b> Productivity KPIs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show3')">+ Add a Record</button> </b></tr>
+                    <tr style="color:black;"> <b> Productivity KPIs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button  class="btn btn-success" (click)="toggle('show3')">{{ show3 == false ? '+ Add a product' : 'Close' }}</button> </b></tr>
                       <div class="card" style="width:585px;background:lightgrey;  align-items:center" *ngIf="show3 === true">
                             <tr>
                                 <td> <label style="color:black">Select a Product </label> </td>
