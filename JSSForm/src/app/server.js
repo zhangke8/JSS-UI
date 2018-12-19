@@ -11,12 +11,12 @@ app.use(bodyparser.json());
 // Create connection to database
 var config =
 {
-    userName: 'admin_login',
-    password: 'Start@123',
-    server: 'manutd8.database.windows.net',
+    userName: '',
+    password: '',
+    server: '',
     options:
     {
-        database: 'TestSDB',
+        database: '',
         encrypt: true
     }
 }
